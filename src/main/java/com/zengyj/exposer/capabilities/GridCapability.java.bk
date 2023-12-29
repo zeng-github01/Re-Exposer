@@ -2,13 +2,16 @@ package com.zengyj.exposer.capabilities;
 
 import com.refinedmods.refinedstorage.tile.ExternalStorageTile;
 import com.refinedmods.refinedstorage.tile.grid.GridTile;
+import com.zengyj.exposer.Exposer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
+import org.apache.logging.log4j.Level;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -22,14 +25,17 @@ public class GridCapability implements ICapabilityProvider {
         this.grid = grid;
     }
 
-    public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable Direction direction) {
-        if ((capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) && this.grid.getNode().getNetwork() instanceof TileEntity) {
-                if (direction != null) {
+    @Nonnull
+    @Override
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction) {
+
+        if ((capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) && this.grid.getNode().getNetwork() instanceof TileEntity) {
+            if (direction != null) {
                 BlockPos pos = this.grid.getBlockPos().offset(direction.getNormal());
                 if (this.grid.getLevel().isLoaded(pos)) {
                     TileEntity te = this.grid.getLevel().getBlockEntity(pos);
                     if (te instanceof ExternalStorageTile) {
-                        return false;
+                        return LazyOptional.empty();
                     }
                 }
             }
@@ -38,15 +44,11 @@ public class GridCapability implements ICapabilityProvider {
                 this.core = (TileEntity)(this.grid.getNode()).getNetwork();
             }
 
-            return true;
-        } else {
-            return false;
-        }
-    }
+            Exposer.LOGGER.log(Level.DEBUG,"Tile" + this.core);
 
-    @Nonnull
-    @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction) {
-        return this.hasCapability(capability, direction) ? this.core.getCapability(capability, (Direction) null) : null;
+            return this.core.getCapability(capability,direction);
+        } else {
+            return LazyOptional.empty();
+        }
     }
 }

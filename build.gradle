@@ -80,15 +80,15 @@ processResources {
     inputs.property "mcversion", "${mc_version}"
 
     from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        filesMatching(['mcmod.info']){
-            expand 'version': "${mod_version}", 'mcversion': "${mc_version}"
+        include 'META-INF/mods.toml'
+        filesMatching(['META-INF/mods.toml']){
+            expand 'version': "${mod_version}"
         }
     }
 
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+//    from(sourceSets.main.resources.srcDirs) {
+//        exclude 'mcmod.info'
+//    }
 }
 
 test {
