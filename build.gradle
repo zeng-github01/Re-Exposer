@@ -1,0 +1,96 @@
+buildscript {
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
+    }
+}
+
+plugins {
+    id 'java'
+    id 'net.minecraftforge.gradle' version '5.1.+'
+}
+
+apply plugin: 'idea'
+
+group = 'com.zengyj.exposer'
+version = "${mod_version}-${mc_version}"
+
+minecraft {
+    // the mappings can be changed at any time, and must be in the following format.
+    // snapshot_YYYYMMDD   snapshot are built nightly.
+    // stable_#            stables are built at the discretion of the MCP team.
+    // Use non-default mappings at your own risk. they may not always work.
+    // simply re-run your setup task after changing the mappings to update your workspace.
+    mappings channel: "${mapping_channel}", version: "${mapping_version}"
+    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
+
+
+    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+
+    // Default run configurations.
+    // These can be tweaked, removed, or duplicated as needed.
+    runs {
+        client {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+
+            //JvmArgs += "-Dfml.coreMods.load=com.github.vfyjxf.nee.asm.NEELoadingPlugin"
+        }
+
+        server {
+            workingDirectory project.file('run')
+
+            // Recommended logging data for a userdev environment
+            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
+
+            // Recommended logging level for the console
+            property 'forge.logging.console.level', 'debug'
+
+            //JvmArgs += "-Dfml.coreMods.load=com.github.vfyjxf.nee.asm.NEELoadingPlugin"
+        }
+    }
+}
+
+repositories {
+    gradlePluginPortal()
+    maven { url 'https://cursemaven.com/' }
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+    implementation fg.deobf("curse.maven:refined-storage-243076:2940914")
+    implementation fg.deobf("curse.maven:ae2-extended-life-570458:4961400")
+
+}
+
+processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+
+    inputs.property "version", "${mod_version}"
+    inputs.property "mcversion", "${mc_version}"
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        filesMatching(['mcmod.info']){
+            expand 'version': "${mod_version}", 'mcversion': "${mc_version}"
+        }
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}
+
+test {
+
+}

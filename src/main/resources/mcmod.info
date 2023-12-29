@@ -1,0 +1,16 @@
+[
+{
+  "modid": "exposer",
+  "name": "Re-Exposer",
+  "description": "Make RS item storage identifiable as a storage, such as a chest ",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Zengyj"],
+  "credits": "The original Exposer, and its authors",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["Refined Storage"]
+}
+]
