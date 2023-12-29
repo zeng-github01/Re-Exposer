@@ -13,6 +13,7 @@ buildscript {
 plugins {
     id 'java'
     id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
 apply plugin: 'idea'
@@ -67,9 +68,8 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
-    implementation fg.deobf("curse.maven:refined-storage-243076:2940914")
-    implementation fg.deobf("curse.maven:ae2-extended-life-570458:4961400")
+    minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
+    implementation fg.deobf("curse.maven:refined-storage-243076:3807951")
 
 }
 

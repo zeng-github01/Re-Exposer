@@ -1,14 +1,13 @@
 package com.zengyj.exposer.capabilities;
 
-import com.raoulvdberge.refinedstorage.apiimpl.network.node.NetworkNodeGrid;
-import com.raoulvdberge.refinedstorage.tile.TileExternalStorage;
-import com.raoulvdberge.refinedstorage.tile.grid.TileGrid;
+import com.refinedmods.refinedstorage.tile.ExternalStorageTile;
+import com.refinedmods.refinedstorage.tile.grid.GridTile;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumFacing;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 
 import javax.annotation.Nonnull;
@@ -16,27 +15,27 @@ import javax.annotation.Nullable;
 
 public class GridCapability implements ICapabilityProvider {
 
-    private TileGrid grid;
+    private GridTile grid;
     private TileEntity core ;
 
-    public GridCapability(TileGrid grid) {
+    public GridCapability(GridTile grid) {
         this.grid = grid;
     }
 
-    public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing) {
-        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && ((NetworkNodeGrid)this.grid.getNode()).getNetwork() instanceof TileEntity) {
-            if (facing != null) {
-                BlockPos pos = this.grid.getPos().offset(facing);
-                if (this.grid.getWorld().isBlockLoaded(pos)) {
-                    TileEntity te = this.grid.getWorld().getTileEntity(pos);
-                    if (te instanceof TileExternalStorage) {
+    public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable Direction direction) {
+        if ((capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) && this.grid.getNode().getNetwork() instanceof TileEntity) {
+                if (direction != null) {
+                BlockPos pos = this.grid.getBlockPos().offset(direction.getNormal());
+                if (this.grid.getLevel().isLoaded(pos)) {
+                    TileEntity te = this.grid.getLevel().getBlockEntity(pos);
+                    if (te instanceof ExternalStorageTile) {
                         return false;
                     }
                 }
             }
 
-            if (this.core == null || !((NetworkNodeGrid)this.grid.getNode()).isActive()) {
-                this.core = (TileEntity)((NetworkNodeGrid)this.grid.getNode()).getNetwork();
+            if (this.core == null || !(this.grid.getNode()).isActive()) {
+                this.core = (TileEntity)(this.grid.getNode()).getNetwork();
             }
 
             return true;
@@ -45,8 +44,9 @@ public class GridCapability implements ICapabilityProvider {
         }
     }
 
-    @Nullable
-    public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing facing) {
-        return this.hasCapability(capability, facing) ? this.core.getCapability(capability, (EnumFacing)null) : null;
+    @Nonnull
+    @Override
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction) {
+        return this.hasCapability(capability, direction) ? this.core.getCapability(capability, (Direction) null) : null;
     }
 }

@@ -5,10 +5,7 @@ pluginManagement {
             name = 'MinecraftForge'
             url = 'https://maven.minecraftforge.net/'
         }
-//        maven {
-//            name  'Garden of Fancy'
-//            url  'https://maven.gofancy.wtf/releases'
-//        }
+        maven { url = 'https://maven.parchmentmc.org' }
     }
 }
 
