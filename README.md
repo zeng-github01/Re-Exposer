@@ -12,8 +12,8 @@ To use Re-Exposer, you need to connect any compatible block from other mods to t
 
 ## Contributing
 
-If you want to contribute to Re-Exposer, you can fork this repository and make a pull request with your changes. You can also report any issues or suggestions on the [issues] page.
+If you want to contribute to Re-Exposer, you can fork this repository and make a pull request with your changes. You can also report any issues or suggestions on the [issues](https://github.com/zeng-github01/Re-Exposer/issues) page.
 
 ## License
 
-Re-Exposer is licensed under the MIT License. See the [LICENSE] file for more details.
+Re-Exposer is licensed under the MIT License. See the [LICENSE](https://github.com/zeng-github01/Re-Exposer/blob/1.16.5/LICENSE.txt) file for more details.
