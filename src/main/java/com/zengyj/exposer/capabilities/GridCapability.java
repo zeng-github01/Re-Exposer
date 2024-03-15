@@ -29,7 +29,7 @@ public class GridCapability implements ICapabilityProvider {
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction) {
 
-        if ((capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) && this.grid.getNode().getNetwork() instanceof TileEntity) {
+        if (this.grid.getNode().getNetwork() instanceof TileEntity) {
             if (direction != null) {
                 BlockPos pos = this.grid.getBlockPos().offset(direction.getNormal());
                 if (this.grid.getLevel().isLoaded(pos)) {
@@ -41,14 +41,13 @@ public class GridCapability implements ICapabilityProvider {
             }
 
             if (this.core == null || !(this.grid.getNode()).isActive()) {
-                this.core = (TileEntity)(this.grid.getNode()).getNetwork();
+                this.core = (TileEntity)this.grid.getNode().getNetwork();
             }
 
             Exposer.LOGGER.log(Level.DEBUG,"Tile" + this.core);
 
             return this.core.getCapability(capability,direction);
-        } else {
-            return LazyOptional.empty();
         }
+            return LazyOptional.empty();
     }
 }

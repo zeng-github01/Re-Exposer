@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="20711a4e-33fc-444f-8229-4aa71599137d" name="更改" comment="Adapt for 1.16.5">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/capabilities/GridCapability.java.bk" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/capabilities/GridCapability.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
