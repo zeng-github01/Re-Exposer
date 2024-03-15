@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="20711a4e-33fc-444f-8229-4aa71599137d" name="更改" comment="support read fluid">
+    <list default="true" id="20711a4e-33fc-444f-8229-4aa71599137d" name="更改" comment="Remove debug code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/handler/FluidHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/handler/FluidHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/util/ModConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/util/ModConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +190,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710516482046</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Remove debug code">
+      <option name="closed" value="true" />
+      <created>1710516762918</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1710516762918</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,6 +232,7 @@
     <MESSAGE value="Adapt for 1.16.5" />
     <MESSAGE value="Update" />
     <MESSAGE value="support read fluid" />
-    <option name="LAST_COMMIT_MESSAGE" value="support read fluid" />
+    <MESSAGE value="Remove debug code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove debug code" />
   </component>
 </project>
