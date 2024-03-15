@@ -41,7 +41,7 @@ public class GridCapability implements ICapabilityProvider {
             }
 
             if (this.core == null || !(this.grid.getNode()).isActive()) {
-                this.core = (TileEntity)this.grid.getNode().getNetwork();
+                this.core = (TileEntity) this.grid.getNode().getNetwork();
             }
 
             Exposer.LOGGER.log(Level.DEBUG,"Tile" + this.core);
