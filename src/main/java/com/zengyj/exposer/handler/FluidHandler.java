@@ -8,10 +8,15 @@ import com.raoulvdberge.refinedstorage.api.storage.externalstorage.IStorageExter
 import com.raoulvdberge.refinedstorage.api.util.Action;
 import com.zengyj.exposer.Exposer;
 import com.zengyj.exposer.util.ModConfig;
+import net.minecraft.client.Minecraft;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.FluidTankProperties;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidTankProperties;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.Level;
 
@@ -29,15 +34,9 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
         this.network = network;
         this.invalidate();
     }
-
-    /**
-     * Get Tanks property
-     * @return All fluid stack information within the RS network
-     */
     @Override
     public IFluidTankProperties[] getTankProperties() {
-        Exposer.INSTANCE.logger.log(Level.WARN,String.format("cache length %s",storageCacheData.length));
-
+//        Exposer.INSTANCE.logger.log(Level.WARN,String.format("cache length %s",storageCacheData.length));
         FluidTankProperties[] properties = new FluidTankProperties[storageCacheData.length+1];
 
         for (int i = 0; i < storageCacheData.length; i++) {
@@ -62,7 +61,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     public FluidStack drain(FluidStack resource, boolean doDrain) {
         FluidStack fluidStack = network.extractFluid(resource, resource.amount, doDrain ? Action.PERFORM : Action.SIMULATE);
         if (fluidStack != null) {
-            Exposer.INSTANCE.logger.log(Level.INFO,"stack info : fluid %s,amount %s",fluidStack.getFluid(),fluidStack.amount);
+            Exposer.INSTANCE.logger.log(Level.WARN,"stack info : fluid %s,amount %s",fluidStack.getFluid(),fluidStack.amount);
         }
         return fluidStack;
 
@@ -71,6 +70,12 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     @Nullable
     @Override
     public FluidStack drain(int maxDrain, boolean doDrain) {
+        for (FluidStack fluidStack : storageCacheData) {
+            if (maxDrain <= fluidStack.amount){
+               return network.extractFluid(fluidStack,maxDrain,doDrain ? Action.PERFORM : Action.SIMULATE);
+            }
+        }
+
         return null;
     }
 
@@ -101,10 +106,6 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
 
     private int getCapacity(){
         int capacity = 0;
-
-        if (ModConfig.debug){
-            return Integer.MAX_VALUE;
-        }
         if (network == null) return 0;
 
         for (IStorage<FluidStack> storage : this.network.getFluidStorageCache().getStorages()) {

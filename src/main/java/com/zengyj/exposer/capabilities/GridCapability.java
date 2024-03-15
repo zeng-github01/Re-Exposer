@@ -40,9 +40,9 @@ public class GridCapability implements ICapabilityProvider {
             }
 
             return true;
-        } else {
-            return false;
         }
+
+        return false;
     }
 
     @Nullable

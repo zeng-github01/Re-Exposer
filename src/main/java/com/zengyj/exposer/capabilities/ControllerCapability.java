@@ -45,7 +45,7 @@ public class ControllerCapability implements ICapabilityProvider {
 
         if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY){
 
-            if (this.itemHandler != null) {
+            if (this.fluidHandler != null) {
                 return true;
             }
 
