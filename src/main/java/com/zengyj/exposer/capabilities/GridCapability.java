@@ -24,7 +24,7 @@ public class GridCapability implements ICapabilityProvider {
     }
 
     public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing) {
-        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY && ((NetworkNodeGrid)this.grid.getNode()).getNetwork() instanceof TileEntity) {
+        if (this.grid.getNode().getNetwork() instanceof TileEntity) {
             if (facing != null) {
                 BlockPos pos = this.grid.getPos().offset(facing);
                 if (this.grid.getWorld().isBlockLoaded(pos)) {
@@ -35,8 +35,8 @@ public class GridCapability implements ICapabilityProvider {
                 }
             }
 
-            if (this.core == null || !((NetworkNodeGrid)this.grid.getNode()).isActive()) {
-                this.core = (TileEntity)((NetworkNodeGrid)this.grid.getNode()).getNetwork();
+            if (this.core == null || !this.grid.getNode().isActive()) {
+                this.core = (TileEntity) this.grid.getNode().getNetwork();
             }
 
             return true;

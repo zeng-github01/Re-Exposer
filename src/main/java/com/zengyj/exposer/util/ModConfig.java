@@ -12,4 +12,7 @@ public class ModConfig {
     @Config.Name("Enable Exposing")
     @Config.Comment({"Enables the Controller to expose the network."})
     public static boolean expose = true;
+
+    @Config.Name("Debug switch")
+    public static boolean debug = true;
 }
