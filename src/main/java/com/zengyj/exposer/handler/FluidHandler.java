@@ -36,7 +36,6 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     }
     @Override
     public IFluidTankProperties[] getTankProperties() {
-//        Exposer.INSTANCE.logger.log(Level.WARN,String.format("cache length %s",storageCacheData.length));
         FluidTankProperties[] properties = new FluidTankProperties[storageCacheData.length+1];
 
         for (int i = 0; i < storageCacheData.length; i++) {
@@ -59,12 +58,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     @Nullable
     @Override
     public FluidStack drain(FluidStack resource, boolean doDrain) {
-        FluidStack fluidStack = network.extractFluid(resource, resource.amount, doDrain ? Action.PERFORM : Action.SIMULATE);
-        if (fluidStack != null) {
-            Exposer.INSTANCE.logger.log(Level.WARN,"stack info : fluid %s,amount %s",fluidStack.getFluid(),fluidStack.amount);
-        }
-        return fluidStack;
-
+        return network.extractFluid(resource, resource.amount, doDrain ? Action.PERFORM : Action.SIMULATE);
     }
 
     @Nullable
@@ -101,7 +95,6 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
 
     private void invalidate(){
         this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new FluidStack[0]);
-        Exposer.INSTANCE.logger.log(Level.INFO,"cache length %s",storageCacheData.length);
     }
 
     private int getCapacity(){
