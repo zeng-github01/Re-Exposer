@@ -1,0 +1,487 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"20711a4e-33fc-444f-8229-4aa71599137d\" name=\"更改\" comment=\"Adapt for 1.16.5\">\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/zengyj/exposer/Constants.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/zengyj/exposer/Constants.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"Exposer\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"1.12.2\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 8\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2aA15drKw15FSCgAh1iQDatDxtj\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;Gradle.Exposer [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor&quot;: &quot;Run&quot;,\r\n    &quot;Gradle.Exposer [build].executor&quot;: &quot;Run&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;1.16.5&quot;,\r\n    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/14337/IdeaProjects/Exposer/src/main/resources&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/14337/IdeaProjects/Exposer/src/main/java/com/zengyj/Main.java&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\14337\\IdeaProjects\\Exposer\\src\\main\\resources\" />\r\n      <recent name=\"C:\\Users\\14337\\IdeaProjects\\Exposer\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\14337\\IdeaProjects\\Exposer\\src\\main\\resources\\META-INF\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Exposer [build]\" type=\"GradleRunConfiguration\" factoryName=\"Gradle\" nameIsGenerated=\"true\">\r\n      <ExternalSystemSettings>\r\n        <option name=\"executionName\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"externalSystemIdString\" value=\"GRADLE\" />\r\n        <option name=\"scriptParameters\" value=\"\" />\r\n        <option name=\"taskDescriptions\">\r\n          <list />\r\n        </option>\r\n        <option name=\"taskNames\">\r\n          <list>\r\n            <option value=\"build\" />\r\n          </list>\r\n        </option>\r\n        <option name=\"vmOptions\" />\r\n      </ExternalSystemSettings>\r\n      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>\r\n      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>\r\n      <DebugAllEnabled>false</DebugAllEnabled>\r\n      <RunAsTest>false</RunAsTest>\r\n      <method v=\"2\" />\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-1.8.0_392-corretto-1.8.0_392-3183f394aec4-cb300fc7\" />\r\n        <option value=\"jdk-17.0.9-jbr-17.0.9-3183f394aec4-cdd1ee5a\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"应用程序级\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\r\n      <changelist id=\"20711a4e-33fc-444f-8229-4aa71599137d\" name=\"更改\" comment=\"\" />\r\n      <created>1703746389581</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1703746389581</updated>\r\n      <workItem from=\"1703746390639\" duration=\"6954000\" />\r\n      <workItem from=\"1703808544276\" duration=\"579000\" />\r\n      <workItem from=\"1703809169926\" duration=\"10792000\" />\r\n      <workItem from=\"1703831221769\" duration=\"9577000\" />\r\n      <workItem from=\"1703841715694\" duration=\"31000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Init for 1.12.2&#10;&#10;Decompiled from original Exposer\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703836771458</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703836771458</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Adapt for 1.16.5\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703925014185</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703925014185</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"3\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"1.12.2\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Init for 1.12.2&#10;&#10;Decompiled from original Exposer\" />\r\n    <MESSAGE value=\"Adapt for 1.16.5\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Adapt for 1.16.5\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision aaf816779027f6959ed759e48b9928c002a58f25)
++++ b/.idea/workspace.xml	(date 1709535206337)
+@@ -5,7 +5,14 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="20711a4e-33fc-444f-8229-4aa71599137d" name="更改" comment="Adapt for 1.16.5">
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/Constants.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/capabilities/ControllerCapability.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/capabilities/ControllerCapability.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/capabilities/GridCapability.java.bk" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/capabilities/GridCapability.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/handler/FluidHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/handler/FluidHandler.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/util/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zengyj/exposer/util/EventListener.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/mods.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/mods.toml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -51,6 +58,11 @@
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="jar://$USER_HOME$/.gradle/caches/forge_gradle/deobf_dependencies/curse/maven/refined-storage-243076/3807951_mapped_parchment_2022.03.06-1.16.5/refined-storage-243076-3807951_mapped_parchment_2022.03.06-1.16.5.jar!/com/refinedmods/refinedstorage/apiimpl/network/Network.class" root0="SKIP_INSPECTION" />
++    <setting file="jar://$USER_HOME$/.gradle/caches/forge_gradle/deobf_dependencies/curse/maven/refined-storage-243076/3807951_mapped_parchment_2022.03.06-1.16.5/refined-storage-243076-3807951_mapped_parchment_2022.03.06-1.16.5.jar!/com/refinedmods/refinedstorage/apiimpl/network/node/NetworkNode.class" root0="SKIP_INSPECTION" />
++    <setting file="jar://$USER_HOME$/.gradle/caches/forge_gradle/deobf_dependencies/curse/maven/refined-storage-243076/3807951_mapped_parchment_2022.03.06-1.16.5/refined-storage-243076-3807951_mapped_parchment_2022.03.06-1.16.5.jar!/com/refinedmods/refinedstorage/apiimpl/network/node/RootNetworkNode.class" root0="SKIP_INSPECTION" />
+   </component>
+   <component name="ProjectColorInfo">{
+   &quot;associatedIndex&quot;: 8
+@@ -65,6 +77,7 @@
+   &quot;keyToString&quot;: {
+     &quot;Gradle.Exposer [:createMcpToSrg :createMcpToSrg :createMcpToSrg].executor&quot;: &quot;Run&quot;,
+     &quot;Gradle.Exposer [build].executor&quot;: &quot;Run&quot;,
++    &quot;Gradle.Exposer [clean].executor&quot;: &quot;Run&quot;,
+     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+@@ -93,7 +106,7 @@
+       <recent name="C:\Users\14337\IdeaProjects\Exposer\src\main\resources\META-INF" />
+     </key>
+   </component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="Gradle.Exposer [build]">
+     <configuration name="Exposer [build]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
+       <ExternalSystemSettings>
+         <option name="executionName" />
+@@ -116,6 +129,32 @@
+       <RunAsTest>false</RunAsTest>
+       <method v="2" />
+     </configuration>
++    <configuration name="Exposer [clean]" type="GradleRunConfiguration" factoryName="Gradle" nameIsGenerated="true">
++      <ExternalSystemSettings>
++        <option name="executionName" />
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="externalSystemIdString" value="GRADLE" />
++        <option name="scriptParameters" value="" />
++        <option name="taskDescriptions">
++          <list />
++        </option>
++        <option name="taskNames">
++          <list>
++            <option value="clean" />
++          </list>
++        </option>
++        <option name="vmOptions" />
++      </ExternalSystemSettings>
++      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
++      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
++      <DebugAllEnabled>false</DebugAllEnabled>
++      <RunAsTest>false</RunAsTest>
++      <method v="2" />
++    </configuration>
++    <list>
++      <item itemvalue="Gradle.Exposer [build]" />
++      <item itemvalue="Gradle.Exposer [clean]" />
++    </list>
+   </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+@@ -138,6 +177,10 @@
+       <workItem from="1703809169926" duration="10792000" />
+       <workItem from="1703831221769" duration="9577000" />
+       <workItem from="1703841715694" duration="31000" />
++      <workItem from="1709369203501" duration="1410000" />
++      <workItem from="1709371335724" duration="3210000" />
++      <workItem from="1709394561810" duration="9000" />
++      <workItem from="1709526983511" duration="1613000" />
+     </task>
+     <task id="LOCAL-00001" summary="Init for 1.12.2&#10;&#10;Decompiled from original Exposer">
+       <option name="closed" value="true" />
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"FrameworkDetectionExcludesConfiguration\">\r\n    <file type=\"web\" url=\"file://$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision aaf816779027f6959ed759e48b9928c002a58f25)
++++ b/.idea/misc.xml	(date 1709362817661)
+@@ -1,5 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="EntryPointsManager">
++    <list size="1">
++      <item index="0" class="java.lang.String" itemvalue="net.minecraftforge.eventbus.api.SubscribeEvent" />
++    </list>
++  </component>
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="FrameworkDetectionExcludesConfiguration">
+     <file type="web" url="file://$PROJECT_DIR$" />
+Index: src/main/java/com/zengyj/exposer/util/EventListener.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zengyj.exposer.util;\r\n\r\nimport com.refinedmods.refinedstorage.tile.ControllerTile;\r\nimport com.refinedmods.refinedstorage.tile.grid.GridTile;\r\nimport com.zengyj.exposer.Constants;\r\nimport com.zengyj.exposer.capabilities.ControllerCapability;\r\nimport net.minecraft.tileentity.TileEntity;\r\nimport net.minecraft.util.ResourceLocation;\r\nimport net.minecraftforge.event.AttachCapabilitiesEvent;\r\nimport net.minecraftforge.eventbus.api.SubscribeEvent;\r\nimport net.minecraftforge.fml.common.Mod;\r\n\r\n@Mod.EventBusSubscriber(modid = Constants.Mod_ID)\r\npublic class EventListener {\r\n\r\n    @SubscribeEvent\r\n    public static void onAttachCapabilities(AttachCapabilitiesEvent<TileEntity> event) {\r\n        if (event.getObject() instanceof ControllerTile && ModConfig.expose.get()) {\r\n            event.addCapability(new ResourceLocation(\"exposer\", \"coreexpose\"), new ControllerCapability((ControllerTile) event.getObject()));\r\n        }\r\n//        } else if (event.getObject() instanceof GridTile && ModConfig.gridExpose.get() && ModConfig.expose.get()) {\r\n//            event.addCapability(new ResourceLocation(\"exposer\", \"gridexpose\"), new GridCapability((GridTile) event.getObject()));\r\n//        }\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/zengyj/exposer/util/EventListener.java b/src/main/java/com/zengyj/exposer/util/EventListener.java
+--- a/src/main/java/com/zengyj/exposer/util/EventListener.java	(revision aaf816779027f6959ed759e48b9928c002a58f25)
++++ b/src/main/java/com/zengyj/exposer/util/EventListener.java	(date 1709373951297)
+@@ -3,24 +3,33 @@
+ import com.refinedmods.refinedstorage.tile.ControllerTile;
+ import com.refinedmods.refinedstorage.tile.grid.GridTile;
+ import com.zengyj.exposer.Constants;
++import com.zengyj.exposer.Exposer;
+ import com.zengyj.exposer.capabilities.ControllerCapability;
++import com.zengyj.exposer.capabilities.GridCapability;
+ import net.minecraft.tileentity.TileEntity;
+ import net.minecraft.util.ResourceLocation;
+ import net.minecraftforge.event.AttachCapabilitiesEvent;
+ import net.minecraftforge.eventbus.api.SubscribeEvent;
+ import net.minecraftforge.fml.common.Mod;
++import org.apache.logging.log4j.Level;
+ 
+ @Mod.EventBusSubscriber(modid = Constants.Mod_ID)
+ public class EventListener {
+ 
+     @SubscribeEvent
+     public static void onAttachCapabilities(AttachCapabilitiesEvent<TileEntity> event) {
++
++        if (event == null){
++            Exposer.LOGGER.log(Level.ERROR,"attach event null");
++            return;
++        }
++
+         if (event.getObject() instanceof ControllerTile && ModConfig.expose.get()) {
+-            event.addCapability(new ResourceLocation("exposer", "coreexpose"), new ControllerCapability((ControllerTile) event.getObject()));
++            event.addCapability(new ResourceLocation("exposer", "core_expose"), new ControllerCapability((ControllerTile) event.getObject()));
+         }
+-//        } else if (event.getObject() instanceof GridTile && ModConfig.gridExpose.get() && ModConfig.expose.get()) {
+-//            event.addCapability(new ResourceLocation("exposer", "gridexpose"), new GridCapability((GridTile) event.getObject()));
+-//        }
+ 
++//         if (event.getObject() instanceof GridTile && ModConfig.gridExpose.get()) {
++//            event.addCapability(new ResourceLocation("exposer", "grid_expose"), new GridCapability((GridTile) event.getObject()));
++//        }
+     }
+ }
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>mc_version=1.16.5\r\nmod_version=2.0\r\nmapping_version=2022.03.06-1.16.5\r\nmapping_channel=parchment\r\nforge_version=36.2.34
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle.properties b/gradle.properties
+--- a/gradle.properties	(revision aaf816779027f6959ed759e48b9928c002a58f25)
++++ b/gradle.properties	(date 1709369230023)
+@@ -1,5 +1,5 @@
+ mc_version=1.16.5
+-mod_version=2.0
++mod_version=2.1
+ mapping_version=2022.03.06-1.16.5
+ mapping_channel=parchment
+-forge_version=36.2.34
+\ No newline at end of file
++forge_version=36.2.41
+\ No newline at end of file
+Index: src/main/java/com/zengyj/exposer/handler/FluidHandler.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zengyj.exposer.handler;\r\n\r\nimport com.refinedmods.refinedstorage.api.network.INetwork;\r\nimport com.refinedmods.refinedstorage.api.storage.cache.IStorageCacheListener;\r\nimport com.refinedmods.refinedstorage.api.util.Action;\r\nimport com.refinedmods.refinedstorage.api.util.StackListEntry;\r\nimport com.refinedmods.refinedstorage.api.util.StackListResult;\r\nimport net.minecraft.item.ItemStack;\r\nimport net.minecraftforge.fluids.FluidStack;\r\nimport net.minecraftforge.fluids.capability.IFluidHandler;\r\n\r\nimport javax.annotation.Nonnull;\r\nimport java.util.List;\r\n\r\npublic class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidStack> {\r\n\r\n    private INetwork network;\r\n    private StackListEntry<FluidStack>[] storageCacheData;\r\n\r\n    public FluidHandler(INetwork network){\r\n        this.network = network;\r\n        this.invalidate();\r\n    }\r\n    @Override\r\n    public int getTanks() {\r\n        return storageCacheData.length + 1;\r\n    }\r\n\r\n    @Nonnull\r\n    @Override\r\n    public FluidStack getFluidInTank(int i) {\r\n        return i < this.storageCacheData.length ? this.storageCacheData[i].getStack() : FluidStack.EMPTY;\r\n    }\r\n\r\n    @Override\r\n    public int getTankCapacity(int i) {\r\n        return Integer.MAX_VALUE;\r\n    }\r\n\r\n    @Override\r\n    public boolean isFluidValid(int i, @Nonnull FluidStack fluidStack) {\r\n        return true;\r\n    }\r\n\r\n    @Override\r\n    public int fill(FluidStack fluidStack, FluidAction fluidAction) {\r\n        switch (fluidAction)\r\n        {\r\n            case SIMULATE:\r\n               return network.insertFluid(fluidStack,fluidStack.getAmount(), Action.SIMULATE).getAmount();\r\n            case EXECUTE:\r\n                return network.insertFluid(fluidStack,fluidStack.getAmount(),Action.PERFORM).getAmount();\r\n        }\r\n        return 0;\r\n    }\r\n\r\n    @Nonnull\r\n    @Override\r\n    public FluidStack drain(FluidStack fluidStack, FluidAction fluidAction) {\r\n        switch (fluidAction)\r\n        {\r\n            case EXECUTE:\r\n                return network.extractFluid(fluidStack,fluidStack.getAmount(),Action.PERFORM);\r\n            case SIMULATE:\r\n                return network.extractFluid(fluidStack,fluidStack.getAmount(),Action.SIMULATE);\r\n        }\r\n        return FluidStack.EMPTY;\r\n    }\r\n\r\n    @Nonnull\r\n    @Override\r\n    public FluidStack drain(int i, FluidAction fluidAction) {\r\n       return FluidStack.EMPTY;\r\n    }\r\n\r\n    @Override\r\n    public void onAttached() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void onInvalidated() {\r\n        this.invalidate();\r\n    }\r\n\r\n    @Override\r\n    public void onChanged(StackListResult<FluidStack> stackListResult) {\r\n        this.invalidate();\r\n    }\r\n\r\n    @Override\r\n    public void onChangedBulk(List<StackListResult<FluidStack>> list) {\r\n        this.invalidate();\r\n    }\r\n\r\n    private void invalidate(){\r\n        this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new StackListEntry[0]);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/zengyj/exposer/handler/FluidHandler.java b/src/main/java/com/zengyj/exposer/handler/FluidHandler.java
+--- a/src/main/java/com/zengyj/exposer/handler/FluidHandler.java	(revision aaf816779027f6959ed759e48b9928c002a58f25)
++++ b/src/main/java/com/zengyj/exposer/handler/FluidHandler.java	(date 1709373951317)
+@@ -5,6 +5,7 @@
+ import com.refinedmods.refinedstorage.api.util.Action;
+ import com.refinedmods.refinedstorage.api.util.StackListEntry;
+ import com.refinedmods.refinedstorage.api.util.StackListResult;
++import com.refinedmods.refinedstorage.tile.DiskDriveTile;
+ import net.minecraft.item.ItemStack;
+ import net.minecraftforge.fluids.FluidStack;
+ import net.minecraftforge.fluids.capability.IFluidHandler;
+@@ -17,19 +18,20 @@
+     private INetwork network;
+     private StackListEntry<FluidStack>[] storageCacheData;
+ 
+-    public FluidHandler(INetwork network){
++    public FluidHandler(INetwork network) {
+         this.network = network;
+         this.invalidate();
+     }
++
+     @Override
+     public int getTanks() {
+-        return storageCacheData.length + 1;
++        return this.network.getFluidStorageCache().getStorages().size() + 1;
+     }
+ 
+     @Nonnull
+     @Override
+     public FluidStack getFluidInTank(int i) {
+-        return i < this.storageCacheData.length ? this.storageCacheData[i].getStack() : FluidStack.EMPTY;
++        return FluidStack.EMPTY;
+     }
+ 
+     @Override
+@@ -70,7 +72,7 @@
+     @Nonnull
+     @Override
+     public FluidStack drain(int i, FluidAction fluidAction) {
+-       return FluidStack.EMPTY;
++        return FluidStack.EMPTY;
+     }
+ 
+     @Override
+@@ -93,7 +95,7 @@
+         this.invalidate();
+     }
+ 
+-    private void invalidate(){
++    private void invalidate() {
+         this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new StackListEntry[0]);
+     }
+ }
+Index: src/main/resources/META-INF/mods.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>modLoader = \"javafml\"\r\nloaderVersion = \"[36,)\"\r\nlicense=\"MIT\"\r\n[[mods]]\r\n    modId=\"exposer\"\r\n    version=\"${version}\"\r\n    displayName=\"Re-Exposer\"\r\n    authors = \"Zengyj\"\r\n    description = '''\r\n    Make RS item storage identifiable as a storage, such as a chest\r\n    '''\r\n\r\n[[dependencies.exposer]]\r\n    modId=\"forge\"\r\n    mandatory=true\r\n    versionRange=\"[36,)\"\r\n    ordering=\"NONE\"\r\n    side=\"BOTH\"\r\n\r\n[[dependencies.exposer]]\r\n    modId=\"minecraft\"\r\n    mandatory=true\r\n    versionRange=\"[1.16.5,)\"\r\n    ordering=\"NONE\"\r\n    side=\"BOTH\"\r\n\r\n[[dependencies.exposer]]\r\n    modId=\"refinedstorage\"\r\n    mandatory=true\r\n    versionRange=\"[1.9.7,)\"\r\n    ordering=\"NONE\"\r\n    side=\"BOTH\"
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/META-INF/mods.toml b/src/main/resources/META-INF/mods.toml
+--- a/src/main/resources/META-INF/mods.toml	(revision aaf816779027f6959ed759e48b9928c002a58f25)
++++ b/src/main/resources/META-INF/mods.toml	(date 1709357696282)
+@@ -2,7 +2,7 @@
+ loaderVersion = "[36,)"
+ license="MIT"
+ [[mods]]
+-    modId="exposer"
++    modId="re-exposer"
+     version="${version}"
+     displayName="Re-Exposer"
+     authors = "Zengyj"
+Index: src/main/java/com/zengyj/exposer/capabilities/ControllerCapability.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.zengyj.exposer.capabilities;\r\n\r\nimport com.refinedmods.refinedstorage.tile.ControllerTile;\r\nimport com.refinedmods.refinedstorage.tile.ExternalStorageTile;\r\nimport com.zengyj.exposer.handler.FluidHandler;\r\nimport com.zengyj.exposer.handler.ItemHandler;\r\nimport net.minecraft.tileentity.TileEntity;\r\nimport net.minecraft.util.Direction;\r\nimport net.minecraft.util.math.BlockPos;\r\nimport net.minecraftforge.common.capabilities.Capability;\r\nimport net.minecraftforge.common.capabilities.ICapabilityProvider;\r\nimport net.minecraftforge.common.util.LazyOptional;\r\nimport net.minecraftforge.common.util.NonNullSupplier;\r\nimport net.minecraftforge.fluids.capability.CapabilityFluidHandler;\r\nimport net.minecraftforge.items.CapabilityItemHandler;\r\n\r\nimport javax.annotation.Nonnull;\r\nimport javax.annotation.Nullable;\r\n\r\npublic class ControllerCapability implements ICapabilityProvider {\r\n    private ControllerTile controller;\r\n\r\n    private NonNullSupplier<ItemHandler> itemSupplier;\r\n    private NonNullSupplier<FluidHandler> fluidSupplier;\r\n    private ItemHandler itemHandler;\r\n    private FluidHandler fluidHandler;\r\n\r\n    public ControllerCapability(ControllerTile controller){ this.controller = controller;}\r\n\r\n    @Nonnull\r\n    @Override\r\n    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction) {\r\n        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {\r\n            if (direction != null) {\r\n                BlockPos pos = this.controller.getBlockPos().offset(direction.getNormal());\r\n                if (this.controller.getLevel().isLoaded(pos)) {\r\n                    TileEntity te = this.controller.getLevel().getBlockEntity(pos);\r\n                    if (te instanceof ExternalStorageTile) {\r\n                        return LazyOptional.empty();\r\n                    }\r\n                }\r\n            }\r\n\r\n            if (this.itemSupplier != null) {\r\n                return (LazyOptional<T>) LazyOptional.of(itemSupplier);\r\n            }\r\n\r\n            if (this.controller.getNetwork().getItemStorageCache() != null) {\r\n                this.itemHandler = new ItemHandler(this.controller.getNetwork());\r\n                this.controller.getNetwork().getItemStorageCache().addListener(this.itemHandler);\r\n                itemSupplier = new NonNullSupplier<ItemHandler>() {\r\n                    @Nonnull\r\n                    @Override\r\n                    public ItemHandler get() {\r\n                        return itemHandler;\r\n                    }\r\n                };\r\n\r\n                return (LazyOptional<T>) LazyOptional.of(itemSupplier);\r\n            }\r\n        }\r\n\r\n        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY){\r\n            if (direction != null) {\r\n                BlockPos pos = this.controller.getBlockPos().offset(direction.getNormal());\r\n                if (this.controller.getLevel().isLoaded(pos)) {\r\n                    TileEntity te = this.controller.getLevel().getBlockEntity(pos);\r\n                    if (te instanceof ExternalStorageTile) {\r\n                        return LazyOptional.empty();\r\n                    }\r\n                }\r\n            }\r\n\r\n            if (this.fluidSupplier != null) {\r\n                return (LazyOptional<T>) LazyOptional.of(fluidSupplier);\r\n            }\r\n\r\n            if (this.controller.getNetwork().getFluidStorageCache() != null) {\r\n                this.fluidHandler = new FluidHandler(this.controller.getNetwork());\r\n                this.controller.getNetwork().getFluidStorageCache().addListener(this.fluidHandler);\r\n                fluidSupplier = new NonNullSupplier<FluidHandler>() {\r\n                    @Nonnull\r\n                    @Override\r\n                    public FluidHandler get() {\r\n                        return fluidHandler;\r\n                    }\r\n                };\r\n\r\n                return (LazyOptional<T>) LazyOptional.of(fluidSupplier);\r\n            }\r\n        }\r\n\r\n        return LazyOptional.empty();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/zengyj/exposer/capabilities/ControllerCapability.java b/src/main/java/com/zengyj/exposer/capabilities/ControllerCapability.java
+--- a/src/main/java/com/zengyj/exposer/capabilities/ControllerCapability.java	(revision aaf816779027f6959ed759e48b9928c002a58f25)
++++ b/src/main/java/com/zengyj/exposer/capabilities/ControllerCapability.java	(date 1709373951312)
+@@ -60,35 +60,35 @@
+             }
+         }
+ 
+-        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY){
+-            if (direction != null) {
+-                BlockPos pos = this.controller.getBlockPos().offset(direction.getNormal());
+-                if (this.controller.getLevel().isLoaded(pos)) {
+-                    TileEntity te = this.controller.getLevel().getBlockEntity(pos);
+-                    if (te instanceof ExternalStorageTile) {
+-                        return LazyOptional.empty();
+-                    }
+-                }
+-            }
+-
+-            if (this.fluidSupplier != null) {
+-                return (LazyOptional<T>) LazyOptional.of(fluidSupplier);
+-            }
+-
+-            if (this.controller.getNetwork().getFluidStorageCache() != null) {
+-                this.fluidHandler = new FluidHandler(this.controller.getNetwork());
+-                this.controller.getNetwork().getFluidStorageCache().addListener(this.fluidHandler);
+-                fluidSupplier = new NonNullSupplier<FluidHandler>() {
+-                    @Nonnull
+-                    @Override
+-                    public FluidHandler get() {
+-                        return fluidHandler;
+-                    }
+-                };
+-
+-                return (LazyOptional<T>) LazyOptional.of(fluidSupplier);
+-            }
+-        }
++//        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY){
++//            if (direction != null) {
++//                BlockPos pos = this.controller.getBlockPos().offset(direction.getNormal());
++//                if (this.controller.getLevel().isLoaded(pos)) {
++//                    TileEntity te = this.controller.getLevel().getBlockEntity(pos);
++//                    if (te instanceof ExternalStorageTile) {
++//                        return LazyOptional.empty();
++//                    }
++//                }
++//            }
++//
++//            if (this.fluidSupplier != null) {
++//                return (LazyOptional<T>) LazyOptional.of(fluidSupplier);
++//            }
++//
++//            if (this.controller.getNetwork().getFluidStorageCache() != null) {
++//                this.fluidHandler = new FluidHandler(this.controller.getNetwork());
++//                this.controller.getNetwork().getFluidStorageCache().addListener(this.fluidHandler);
++//                fluidSupplier = new NonNullSupplier<FluidHandler>() {
++//                    @Nonnull
++//                    @Override
++//                    public FluidHandler get() {
++//                        return fluidHandler;
++//                    }
++//                };
++//
++//                return (LazyOptional<T>) LazyOptional.of(fluidSupplier);
++//            }
++//        }
+ 
+         return LazyOptional.empty();
+     }
+Index: src/main/java/com/zengyj/exposer/capabilities/GridCapability.java.bk
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/zengyj/exposer/capabilities/GridCapability.java.bk b/src/main/java/com/zengyj/exposer/capabilities/GridCapability.java
+rename from src/main/java/com/zengyj/exposer/capabilities/GridCapability.java.bk
+rename to src/main/java/com/zengyj/exposer/capabilities/GridCapability.java
+--- a/src/main/java/com/zengyj/exposer/capabilities/GridCapability.java.bk	(revision aaf816779027f6959ed759e48b9928c002a58f25)
++++ b/src/main/java/com/zengyj/exposer/capabilities/GridCapability.java	(date 1709373951306)
+@@ -1,14 +1,24 @@
+ package com.zengyj.exposer.capabilities;
+ 
++import com.refinedmods.refinedstorage.api.network.INetwork;
+ import com.refinedmods.refinedstorage.tile.ExternalStorageTile;
+ import com.refinedmods.refinedstorage.tile.grid.GridTile;
+ import com.zengyj.exposer.Exposer;
++import com.zengyj.exposer.handler.FluidHandler;
++import com.zengyj.exposer.handler.ItemHandler;
++import net.minecraft.client.Minecraft;
++import net.minecraft.command.impl.SayCommand;
+ import net.minecraft.tileentity.TileEntity;
+ import net.minecraft.util.Direction;
+ import net.minecraft.util.math.BlockPos;
++import net.minecraft.util.text.StringTextComponent;
++import net.minecraft.util.text.TextComponent;
++import net.minecraft.util.text.TranslationTextComponent;
++import net.minecraftforge.common.MinecraftForge;
+ import net.minecraftforge.common.capabilities.Capability;
+ import net.minecraftforge.common.capabilities.ICapabilityProvider;
+ import net.minecraftforge.common.util.LazyOptional;
++import net.minecraftforge.common.util.NonNullSupplier;
+ import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
+ import net.minecraftforge.items.CapabilityItemHandler;
+ import org.apache.logging.log4j.Level;
+@@ -19,17 +29,28 @@
+ public class GridCapability implements ICapabilityProvider {
+ 
+     private GridTile grid;
+-    private TileEntity core ;
++    private INetwork network;
++
++    private NonNullSupplier<ItemHandler> itemSupplier;
++    private NonNullSupplier<FluidHandler> fluidSupplier;
++    private ItemHandler itemHandler;
++    private FluidHandler fluidHandler;
+ 
+     public GridCapability(GridTile grid) {
+-        this.grid = grid;
+-    }
++        try {
++            this.grid = grid;
++            if (this.grid != null && this.grid.getNode() != null && !this.grid.getNode().isActive()) {
++                this.network = this.grid.getNode().getNetwork();
++            }
++        }catch (NullPointerException exception){
++            Exposer.LOGGER.log(Level.ERROR,exception);
++        }
+ 
++    }
+     @Nonnull
+     @Override
+     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction) {
+-
+-        if ((capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY || capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) && this.grid.getNode().getNetwork() instanceof TileEntity) {
++        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+             if (direction != null) {
+                 BlockPos pos = this.grid.getBlockPos().offset(direction.getNormal());
+                 if (this.grid.getLevel().isLoaded(pos)) {
+@@ -37,18 +58,66 @@
+                     if (te instanceof ExternalStorageTile) {
+                         return LazyOptional.empty();
+                     }
++
++                    if (network == null){
++                        return LazyOptional.empty();
++                    }
+                 }
+-            }
++
++                if (this.itemSupplier != null) {
++                    return (LazyOptional<T>) LazyOptional.of(itemSupplier);
++                }
+ 
+-            if (this.core == null || !(this.grid.getNode()).isActive()) {
+-                this.core = (TileEntity)(this.grid.getNode()).getNetwork();
+-            }
++                if (this.network.getItemStorageCache() != null) {
++                    this.itemHandler = new ItemHandler(this.network);
++                    this.network.getItemStorageCache().addListener(this.itemHandler);
++                    itemSupplier = new NonNullSupplier<ItemHandler>() {
++                        @Nonnull
++                        @Override
++                        public ItemHandler get() {
++                            return itemHandler;
++                        }
++                    };
+ 
+-            Exposer.LOGGER.log(Level.DEBUG,"Tile" + this.core);
++                    return (LazyOptional<T>) LazyOptional.of(itemSupplier);
++                }
++            }
++        }
+ 
+-            return this.core.getCapability(capability,direction);
+-        } else {
+-            return LazyOptional.empty();
+-        }
++//        if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY){
++//            if (direction != null) {
++//                BlockPos pos = this.grid.getBlockPos().offset(direction.getNormal());
++//                if (this.grid.getLevel().isLoaded(pos)) {
++//                    TileEntity te = this.grid.getLevel().getBlockEntity(pos);
++//                    if (te instanceof ExternalStorageTile) {
++//                        return LazyOptional.empty();
++//                    }
++//                }
++//
++//                if (network == null){
++//                    return LazyOptional.empty();
++//                }
++//            }
++//
++//            if (this.fluidSupplier != null) {
++//                return (LazyOptional<T>) LazyOptional.of(fluidSupplier);
++//            }
++//
++//            if (this.network.getFluidStorageCache() != null) {
++//                this.fluidHandler = new FluidHandler(this.network);
++//                this.network.getFluidStorageCache().addListener(this.fluidHandler);
++//                fluidSupplier = new NonNullSupplier<FluidHandler>() {
++//                    @Nonnull
++//                    @Override
++//                    public FluidHandler get() {
++//                        return fluidHandler;
++//                    }
++//                };
++//
++//                return (LazyOptional<T>) LazyOptional.of(fluidSupplier);
++//            }
++//        }
++
++        return LazyOptional.empty();
+     }
+ }
