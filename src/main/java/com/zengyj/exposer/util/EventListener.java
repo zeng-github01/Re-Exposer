@@ -4,6 +4,7 @@ import com.refinedmods.refinedstorage.tile.ControllerTile;
 import com.refinedmods.refinedstorage.tile.grid.GridTile;
 import com.zengyj.exposer.Constants;
 import com.zengyj.exposer.capabilities.ControllerCapability;
+import com.zengyj.exposer.capabilities.GridCapability;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -18,9 +19,9 @@ public class EventListener {
         if (event.getObject() instanceof ControllerTile && ModConfig.expose.get()) {
             event.addCapability(new ResourceLocation("exposer", "coreexpose"), new ControllerCapability((ControllerTile) event.getObject()));
         }
-//        } else if (event.getObject() instanceof GridTile && ModConfig.gridExpose.get() && ModConfig.expose.get()) {
-//            event.addCapability(new ResourceLocation("exposer", "gridexpose"), new GridCapability((GridTile) event.getObject()));
-//        }
 
+        if (event.getObject() instanceof  GridTile && ModConfig.gridExpose.get() && ModConfig.expose.get()){
+            event.addCapability(new ResourceLocation("exposer", "gridexpose"), new GridCapability((GridTile) event.getObject()));
+        }
     }
 }

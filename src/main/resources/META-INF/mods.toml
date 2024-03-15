@@ -2,7 +2,7 @@ modLoader = "javafml"
 loaderVersion = "[36,)"
 license="MIT"
 [[mods]]
-    modId="exposer"
+    modId="re-exposer"
     version="${version}"
     displayName="Re-Exposer"
     authors = "Zengyj"
