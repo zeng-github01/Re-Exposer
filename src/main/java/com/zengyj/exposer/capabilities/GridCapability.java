@@ -41,13 +41,12 @@ public class GridCapability implements ICapabilityProvider {
             }
 
             if (this.core == null || !(this.grid.getNode()).isActive()) {
-                this.core = (TileEntity) this.grid.getNode().getNetwork();
+                 this.core = ((TileEntity) this.grid.getNode().getNetwork()).getTileEntity();
             }
-
-            Exposer.LOGGER.log(Level.DEBUG,"Tile" + this.core);
 
             return this.core.getCapability(capability,direction);
         }
+        Exposer.LOGGER.log();
             return LazyOptional.empty();
     }
 }

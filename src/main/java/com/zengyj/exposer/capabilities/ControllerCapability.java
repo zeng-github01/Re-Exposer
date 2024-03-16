@@ -30,17 +30,17 @@ public class ControllerCapability implements ICapabilityProvider {
     @Nonnull
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction) {
-        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            if (direction != null) {
-                BlockPos pos = this.controller.getBlockPos().offset(direction.getNormal());
-                if (this.controller.getLevel().isLoaded(pos)) {
-                    TileEntity te = this.controller.getLevel().getBlockEntity(pos);
-                    if (te instanceof ExternalStorageTile) {
-                        return LazyOptional.empty();
-                    }
+        if (direction != null) {
+            BlockPos pos = this.controller.getBlockPos().offset(direction.getNormal());
+            if (this.controller.getLevel().isLoaded(pos)) {
+                TileEntity te = this.controller.getLevel().getBlockEntity(pos);
+                if (te instanceof ExternalStorageTile) {
+                    return LazyOptional.empty();
                 }
             }
+        }
 
+        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             if (this.itemSupplier != null) {
                 return (LazyOptional<T>) LazyOptional.of(itemSupplier);
             }
@@ -61,16 +61,6 @@ public class ControllerCapability implements ICapabilityProvider {
         }
 
         if (capability == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY){
-            if (direction != null) {
-                BlockPos pos = this.controller.getBlockPos().offset(direction.getNormal());
-                if (this.controller.getLevel().isLoaded(pos)) {
-                    TileEntity te = this.controller.getLevel().getBlockEntity(pos);
-                    if (te instanceof ExternalStorageTile) {
-                        return LazyOptional.empty();
-                    }
-                }
-            }
-
             if (this.fluidSupplier != null) {
                 return (LazyOptional<T>) LazyOptional.of(fluidSupplier);
             }
