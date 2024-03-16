@@ -1,6 +1,5 @@
 package com.zengyj.exposer.capabilities;
 
-import com.raoulvdberge.refinedstorage.apiimpl.network.node.NetworkNodeGrid;
 import com.raoulvdberge.refinedstorage.tile.TileExternalStorage;
 import com.raoulvdberge.refinedstorage.tile.grid.TileGrid;
 import net.minecraft.tileentity.TileEntity;
@@ -8,8 +7,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
