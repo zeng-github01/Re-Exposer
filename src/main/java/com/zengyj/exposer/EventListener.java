@@ -1,8 +1,7 @@
-package com.zengyj.exposer.util;
+package com.zengyj.exposer;
 
 import com.raoulvdberge.refinedstorage.tile.TileController;
 import com.raoulvdberge.refinedstorage.tile.grid.TileGrid;
-import com.zengyj.exposer.Constants;
 import com.zengyj.exposer.capabilities.ControllerCapability;
 import com.zengyj.exposer.capabilities.GridCapability;
 import net.minecraft.tileentity.TileEntity;
@@ -16,9 +15,9 @@ public class EventListener {
 
     @SubscribeEvent
     public static void onAttachCapabilities(AttachCapabilitiesEvent<TileEntity> event) {
-        if (event.getObject() instanceof TileController && ModConfig.expose) {
+        if (event.getObject() instanceof TileController && ModConfig.exposer) {
             event.addCapability(new ResourceLocation("exposer", "coreexpose"), new ControllerCapability((TileController)event.getObject()));
-        } else if (event.getObject() instanceof TileGrid && ModConfig.gridExpose && ModConfig.expose) {
+        } else if (event.getObject() instanceof TileGrid && ModConfig.gridExpose && ModConfig.exposer) {
             event.addCapability(new ResourceLocation("exposer", "gridexpose"), new GridCapability((TileGrid)event.getObject()));
         }
 
