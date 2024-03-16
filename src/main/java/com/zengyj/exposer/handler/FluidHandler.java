@@ -6,6 +6,7 @@ import com.raoulvdberge.refinedstorage.api.storage.IStorageCacheListener;
 import com.raoulvdberge.refinedstorage.api.storage.disk.IStorageDisk;
 import com.raoulvdberge.refinedstorage.api.storage.externalstorage.IStorageExternal;
 import com.raoulvdberge.refinedstorage.api.util.Action;
+import com.raoulvdberge.refinedstorage.api.util.IStackList;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.FluidTankProperties;
 import net.minecraftforge.fluids.capability.IFluidHandler;
@@ -14,29 +15,28 @@ import org.apache.commons.lang3.tuple.Pair;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidStack> {
 
     private INetwork network;
-    private FluidStack[] storageCacheData;
+//    private FluidStack[] storageCacheData;
 
     public FluidHandler(INetwork network){
         this.network = network;
-        this.invalidate();
+//        this.invalidate();
     }
     @Override
     public IFluidTankProperties[] getTankProperties() {
-        FluidTankProperties[] properties = new FluidTankProperties[storageCacheData.length+1];
-
-        for (int i = 0; i < storageCacheData.length; i++) {
-            properties[i] = new FluidTankProperties(storageCacheData[i].copy(),getCapacity());
+        List<FluidTankProperties> properties = new ArrayList<>();
+        for (FluidStack fluidStack : network.getFluidStorageCache().getList().getStacks()) {
+            properties.add(new FluidTankProperties(fluidStack,getCapacity()));
         }
 
-        FluidTankProperties tankProperties = new FluidTankProperties(null,getCapacity());
-        properties[storageCacheData.length] = tankProperties;
-
-        return properties;
+        return properties.toArray(new IFluidTankProperties[properties.size()]);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     @Nullable
     @Override
     public FluidStack drain(int maxDrain, boolean doDrain) {
-        for (FluidStack fluidStack : storageCacheData) {
+        for (FluidStack fluidStack : network.getFluidStorageCache().getList().getStacks()) {
             if (maxDrain <= fluidStack.amount){
                return network.extractFluid(fluidStack,maxDrain,doDrain ? Action.PERFORM : Action.SIMULATE);
             }
@@ -71,22 +71,22 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
 
     @Override
     public void onInvalidated() {
-        this.invalidate();
+//        this.invalidate();
     }
 
     @Override
     public void onChanged(@Nonnull FluidStack fluidStack, int i) {
-        this.invalidate();
+//        this.invalidate();
     }
 
     @Override
     public void onChangedBulk(@Nonnull List<Pair<FluidStack, Integer>> list) {
-        this.invalidate();
+//        this.invalidate();
     }
 
-    private void invalidate(){
-        this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new FluidStack[0]);
-    }
+//    private void invalidate(){
+//        this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new FluidStack[0]);
+//    }
 
     private int getCapacity(){
         int capacity = 0;
