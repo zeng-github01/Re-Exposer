@@ -17,10 +17,11 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     private INetwork network;
     private StackListEntry<FluidStack>[] storageCacheData;
 
-    public FluidHandler(INetwork network){
+    public FluidHandler(INetwork network) {
         this.network = network;
         this.invalidate();
     }
+
     @Override
     public int getTanks() {
         return storageCacheData.length + 1;
@@ -44,25 +45,24 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
 
     @Override
     public int fill(FluidStack fluidStack, FluidAction fluidAction) {
-        switch (fluidAction)
-        {
-            case SIMULATE:
-               return network.insertFluid(fluidStack,fluidStack.getAmount(), Action.SIMULATE).getAmount();
-            case EXECUTE:
-                return network.insertFluid(fluidStack,fluidStack.getAmount(),Action.PERFORM).getAmount();
+        if (fluidStack == FluidStack.EMPTY) return 0;
+
+        FluidStack remainder = network.insertFluid(fluidStack, fluidStack.getAmount(), fluidAction == FluidAction.EXECUTE ? Action.PERFORM : Action.SIMULATE);
+        if (remainder == FluidStack.EMPTY) {
+            return fluidStack.getAmount();
+        } else {
+            return fluidStack.getAmount() - remainder.getAmount();
         }
-        return 0;
     }
 
     @Nonnull
     @Override
     public FluidStack drain(FluidStack fluidStack, FluidAction fluidAction) {
-        switch (fluidAction)
-        {
+        switch (fluidAction) {
             case EXECUTE:
-                return network.extractFluid(fluidStack,fluidStack.getAmount(),Action.PERFORM);
+                return network.extractFluid(fluidStack, fluidStack.getAmount(), Action.PERFORM);
             case SIMULATE:
-                return network.extractFluid(fluidStack,fluidStack.getAmount(),Action.SIMULATE);
+                return network.extractFluid(fluidStack, fluidStack.getAmount(), Action.SIMULATE);
         }
         return FluidStack.EMPTY;
     }
@@ -70,7 +70,12 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     @Nonnull
     @Override
     public FluidStack drain(int i, FluidAction fluidAction) {
-       return FluidStack.EMPTY;
+        for (StackListEntry<FluidStack> fluidEntry : storageCacheData) {
+            if (fluidEntry.getStack().getAmount() >= i) {
+                return network.extractFluid(fluidEntry.getStack(), i, fluidAction == FluidAction.EXECUTE ? Action.PERFORM : Action.SIMULATE);
+            }
+        }
+        return FluidStack.EMPTY;
     }
 
     @Override
@@ -93,7 +98,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
         this.invalidate();
     }
 
-    private void invalidate(){
+    private void invalidate() {
         this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new StackListEntry[0]);
     }
 }
