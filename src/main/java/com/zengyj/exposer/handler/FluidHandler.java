@@ -23,16 +23,16 @@ import java.util.List;
 public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidStack> {
 
     private INetwork network;
-//    private FluidStack[] storageCacheData;
+    private FluidStack[] storageCacheData;
 
     public FluidHandler(INetwork network){
         this.network = network;
-//        this.invalidate();
+        this.invalidate();
     }
     @Override
     public IFluidTankProperties[] getTankProperties() {
         List<FluidTankProperties> properties = new ArrayList<>();
-        for (FluidStack fluidStack : network.getFluidStorageCache().getList().getStacks()) {
+        for (FluidStack fluidStack : storageCacheData) {
             properties.add(new FluidTankProperties(fluidStack,getCapacity()));
         }
 
@@ -41,9 +41,18 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
 
     @Override
     public int fill(FluidStack resource, boolean doFill) {
-        FluidStack fluidStack = network.insertFluid(resource, resource.amount, doFill ? Action.PERFORM : Action.SIMULATE);
-        if (fluidStack == null) return 0;
-        return fluidStack.amount;
+        if (resource == null) return 0;
+
+        // Attempt to insert the fluid and get the remaining fluid
+        FluidStack remainder = network.insertFluid(resource, resource.amount, doFill ? Action.PERFORM : Action.SIMULATE);
+
+        // If remainder is null, it means all the fluid has been inserted
+        if (remainder == null) {
+            return resource.amount; // Return the original amount of fluid requested to be inserted
+        } else {
+            // Otherwise, return the amount of fluid that was inserted (original amount - remaining amount)
+            return resource.amount - remainder.amount;
+        }
     }
 
     @Nullable
@@ -55,7 +64,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     @Nullable
     @Override
     public FluidStack drain(int maxDrain, boolean doDrain) {
-        for (FluidStack fluidStack : network.getFluidStorageCache().getList().getStacks()) {
+        for (FluidStack fluidStack : storageCacheData) {
             if (maxDrain <= fluidStack.amount){
                return network.extractFluid(fluidStack,maxDrain,doDrain ? Action.PERFORM : Action.SIMULATE);
             }
@@ -71,22 +80,22 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
 
     @Override
     public void onInvalidated() {
-//        this.invalidate();
+        this.invalidate();
     }
 
     @Override
     public void onChanged(@Nonnull FluidStack fluidStack, int i) {
-//        this.invalidate();
+        this.invalidate();
     }
 
     @Override
     public void onChangedBulk(@Nonnull List<Pair<FluidStack, Integer>> list) {
-//        this.invalidate();
+        this.invalidate();
     }
 
-//    private void invalidate(){
-//        this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new FluidStack[0]);
-//    }
+    private void invalidate(){
+        this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new FluidStack[0]);
+    }
 
     private int getCapacity(){
         int capacity = 0;
