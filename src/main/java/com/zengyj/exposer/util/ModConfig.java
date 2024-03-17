@@ -1,5 +1,6 @@
-package com.zengyj.exposer;
+package com.zengyj.exposer.util;
 
+import com.zengyj.exposer.Constants;
 import net.minecraftforge.common.config.Config;
 
 @Config(modid = Constants.Mod_ID)
@@ -12,5 +13,5 @@ public class ModConfig {
     @Config.Name("Enable Exposing")
     @Config.Comment({"Enables the Controller to expose the network."})
     @Config.RequiresWorldRestart
-    public static boolean exposer = true;
+    public static boolean expose = true;
 }
