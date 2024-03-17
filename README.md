@@ -1,6 +1,6 @@
 # Re-Exposer
 
-Re-Exposer is a Minecraft Forge mod that allows you to convert the internal storage of Refined Storage into a universal storage device for other mods to use. It is a rewrite of Exposer. It currently fully supports items and partially supports fluids.
+Re-Exposer is a Minecraft Forge mod that allows you to convert the internal storage of Refined Storage into a universal storage device for other mods to use. It is a rewrite of Exposer. It currently fully supports items and fluids.
 
 ## Installation
 
