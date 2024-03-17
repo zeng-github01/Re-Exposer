@@ -46,7 +46,6 @@ public class GridCapability implements ICapabilityProvider {
 
             return this.core.getCapability(capability,direction);
         }
-        Exposer.LOGGER.log();
             return LazyOptional.empty();
     }
 }
