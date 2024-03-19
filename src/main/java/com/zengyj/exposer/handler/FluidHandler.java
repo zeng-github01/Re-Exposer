@@ -33,7 +33,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     public IFluidTankProperties[] getTankProperties() {
         List<FluidTankProperties> properties = new ArrayList<>();
         for (FluidStack fluidStack : storageCacheData) {
-            properties.add(new FluidTankProperties(fluidStack,getCapacity()));
+            properties.add(new FluidTankProperties(fluidStack,Integer.MAX_VALUE));
         }
 
         return properties.toArray(new IFluidTankProperties[properties.size()]);
@@ -97,20 +97,20 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
         this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new FluidStack[0]);
     }
 
-    private int getCapacity(){
-        int capacity = 0;
-        if (network == null) return 0;
-
-        for (IStorage<FluidStack> storage : this.network.getFluidStorageCache().getStorages()) {
-            if(storage instanceof IStorageDisk){
-                capacity += ((IStorageDisk<FluidStack>) storage).getCapacity();
-            }
-
-            if (storage instanceof IStorageExternal){
-                capacity += ((IStorageExternal<FluidStack>) storage).getCapacity();
-            }
-        }
-
-        return capacity;
-    }
+//    private int getCapacity(){
+//        int capacity = 0;
+//        if (network == null) return 0;
+//
+//        for (IStorage<FluidStack> storage : this.network.getFluidStorageCache().getStorages()) {
+//            if(storage instanceof IStorageDisk){
+//                capacity += ((IStorageDisk<FluidStack>) storage).getCapacity();
+//            }
+//
+//            if (storage instanceof IStorageExternal){
+//                capacity += ((IStorageExternal<FluidStack>) storage).getCapacity();
+//            }
+//        }
+//
+//        return capacity;
+//    }
 }
