@@ -85,10 +85,6 @@ processResources {
             expand 'version': "${mod_version}"
         }
     }
-
-//    from(sourceSets.main.resources.srcDirs) {
-//        exclude 'mcmod.info'
-//    }
 }
 
 test {
