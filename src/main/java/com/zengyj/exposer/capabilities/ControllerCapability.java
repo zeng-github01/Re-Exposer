@@ -31,9 +31,9 @@ public class ControllerCapability implements ICapabilityProvider {
     @Override
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction direction) {
         if (direction != null) {
-            BlockPos pos = this.controller.getBlockPos().offset(direction.getNormal());
-            if (this.controller.getLevel().isLoaded(pos)) {
-                TileEntity te = this.controller.getLevel().getBlockEntity(pos);
+            BlockPos pos = this.controller.getPos().offset(direction);
+            if (this.controller.getWorld().isBlockLoaded(pos)) {
+                TileEntity te = this.controller.getWorld().getTileEntity(pos);
                 if (te instanceof ExternalStorageTile) {
                     return LazyOptional.empty();
                 }
