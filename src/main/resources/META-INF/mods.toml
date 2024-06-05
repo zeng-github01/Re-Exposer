@@ -2,9 +2,9 @@ modLoader = "javafml"
 loaderVersion = "[36,)"
 license="MIT"
 [[mods]]
-    modId="re-exposer"
+    modId="exposer"
     version="${version}"
-    displayName="Re-Exposer"
+    displayName="Exposer"
     authors = "Zengyj"
     description = '''
     Make RS item storage identifiable as a storage, such as a chest

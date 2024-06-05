@@ -2,20 +2,22 @@
   "type": "minecraft:crafting_shaped",
   "pattern":
   [
-    "rir",
-    "gcg",
+    "rgr",
+    "icf",
     "rer"
   ],
   "key":
   {
     "r":
     {
-      "type": "forge:ore_dict",
-      "ore": "ingotIron"
+      "tag": "forge:ingots/iron"
     },
     "i":
     {
       "item": "refinedstorage:interface"
+    },
+    "f": {
+      "item": "refinedstorage:fluid_interface"
     },
     "c":
     {
@@ -32,6 +34,6 @@
   },
   "result":
   {
-    "item": "re-exposer:exposer"
+    "item": "exposer:exposer"
   }
 }
