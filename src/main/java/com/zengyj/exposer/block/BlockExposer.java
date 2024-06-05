@@ -16,7 +16,6 @@ public class BlockExposer extends NetworkNodeBlock {
 
     public BlockExposer() {
         super(BlockUtils.DEFAULT_ROCK_PROPERTIES);
-        Exposer.LOGGER.info("TranslationKey:{}", getTranslationKey());
     }
 
     public BlockDirection getDirection() {

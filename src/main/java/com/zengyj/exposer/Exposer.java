@@ -19,7 +19,6 @@ public class Exposer {
     public static final Logger LOGGER  = LogManager.getLogger(Constants.Mod_ID);
     public static Registry REGISTRY;
     public Exposer(){
-//        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, com.zengyj.exposer.ModConfig.SPEC);
         REGISTRY = new Registry();
     }
 }
