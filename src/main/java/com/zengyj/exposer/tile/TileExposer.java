@@ -1,41 +1,39 @@
 package com.zengyj.exposer.tile;
 
-import com.refinedmods.refinedstorage.RSTiles;
-import com.refinedmods.refinedstorage.tile.NetworkNodeTile;
-import com.zengyj.exposer.handler.FluidHandler;
-import com.zengyj.exposer.handler.ItemHandler;
+import com.refinedmods.refinedstorage.RSBlockEntities;
+import com.refinedmods.refinedstorage.blockentity.NetworkNodeBlockEntity;
+import com.refinedmods.refinedstorage.blockentity.data.BlockEntitySynchronizationSpec;
 import com.zengyj.exposer.node.NetworkNodeExposer;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.common.util.NonNullSupplier;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
-public class TileExposer extends NetworkNodeTile<NetworkNodeExposer> {
+public class TileExposer extends NetworkNodeBlockEntity<NetworkNodeExposer> {
 
     private NonNullSupplier<IItemHandler> itemSupplier;
     private NonNullSupplier<IFluidHandler> fluidSupplier;
-    public TileExposer() {
-        super(RSTiles.EXTERNAL_STORAGE);
+
+    public static BlockEntitySynchronizationSpec SPEC;
+
+    public TileExposer(BlockPos pos, BlockState state) {
+        super(RSBlockEntities.EXTERNAL_STORAGE.get(), pos, state, SPEC);
     }
 
-    @Override
-    public NetworkNodeExposer createNode(World world, BlockPos blockPos) {
-        return new NetworkNodeExposer(world,blockPos);
-    }
 
-    @Nonnull
+    @NonNull
     @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @Nullable Direction direction) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY){
+    public <T> LazyOptional<T> getCapability(@NonNull Capability<T> cap, @Nullable Direction direction) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER){
             if (itemSupplier != null){
                 return (LazyOptional<T>) LazyOptional.of(itemSupplier);
             }
@@ -45,7 +43,7 @@ public class TileExposer extends NetworkNodeTile<NetworkNodeExposer> {
             }
 
             itemSupplier = new NonNullSupplier<IItemHandler>() {
-                @Nonnull
+                @NonNull
                 @Override
                 public IItemHandler get() {
                     return getNode().getItemHandler();
@@ -55,7 +53,7 @@ public class TileExposer extends NetworkNodeTile<NetworkNodeExposer> {
             return (LazyOptional<T>) LazyOptional.of(itemSupplier);
         }
 
-        if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY){
+        if (cap == ForgeCapabilities.FLUID_HANDLER){
             if (fluidSupplier != null){
                 return (LazyOptional<T>) LazyOptional.of(fluidSupplier);
             }
@@ -65,7 +63,7 @@ public class TileExposer extends NetworkNodeTile<NetworkNodeExposer> {
             }
 
             fluidSupplier = new NonNullSupplier<IFluidHandler>() {
-                @Nonnull
+                @NonNull
                 @Override
                 public IFluidHandler get() {
                     return getNode().getFluidHandler();
@@ -76,5 +74,14 @@ public class TileExposer extends NetworkNodeTile<NetworkNodeExposer> {
         }
 
         return super.getCapability(cap, direction);
+    }
+
+    @Override
+    public NetworkNodeExposer createNode(Level level, BlockPos blockPos) {
+        return new NetworkNodeExposer(level,blockPos);
+    }
+
+    static {
+        SPEC = BlockEntitySynchronizationSpec.builder().build();
     }
 }

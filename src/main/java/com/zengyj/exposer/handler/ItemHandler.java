@@ -6,12 +6,12 @@ import com.refinedmods.refinedstorage.api.util.Action;
 import com.refinedmods.refinedstorage.api.util.StackListEntry;
 import com.refinedmods.refinedstorage.api.util.StackListResult;
 import com.refinedmods.refinedstorage.util.StackUtils;
-import net.minecraft.item.ItemStack;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.IItemHandler;
 import org.apache.commons.lang3.tuple.Pair;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 
 public class ItemHandler implements IItemHandler, IStorageCacheListener<ItemStack> {
@@ -27,19 +27,19 @@ public class ItemHandler implements IItemHandler, IStorageCacheListener<ItemStac
         return this.storageCacheData.length + 1;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ItemStack getStackInSlot(int slot) {
         return slot < this.storageCacheData.length ? this.storageCacheData[slot].getStack() : ItemStack.EMPTY;
     }
 
-    @Nonnull
+    @NonNull
     @Override
-    public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
+    public ItemStack insertItem(int slot, @NonNull ItemStack stack, boolean simulate) {
         return this.network.insertItem(stack, stack.getCount(), simulate ? Action.SIMULATE : Action.PERFORM);
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public ItemStack extractItem(int slot, int amount, boolean simulate) {
         return slot < this.storageCacheData.length ? this.network.extractItem(this.storageCacheData[slot].getStack(), amount, 3, simulate ? Action.SIMULATE : Action.PERFORM) : ItemStack.EMPTY;
@@ -51,7 +51,7 @@ public class ItemHandler implements IItemHandler, IStorageCacheListener<ItemStac
     }
 
     @Override
-    public boolean isItemValid(int i, @Nonnull ItemStack itemStack) {
+    public boolean isItemValid(int i, @NonNull ItemStack itemStack) {
         return true;
     }
 

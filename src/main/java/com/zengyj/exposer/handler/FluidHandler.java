@@ -5,11 +5,11 @@ import com.refinedmods.refinedstorage.api.storage.cache.IStorageCacheListener;
 import com.refinedmods.refinedstorage.api.util.Action;
 import com.refinedmods.refinedstorage.api.util.StackListEntry;
 import com.refinedmods.refinedstorage.api.util.StackListResult;
-import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.capability.IFluidHandler;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
-import javax.annotation.Nonnull;
+
 import java.util.List;
 
 public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidStack> {
@@ -27,7 +27,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
         return storageCacheData.length + 1;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public FluidStack getFluidInTank(int i) {
         return i < this.storageCacheData.length ? this.storageCacheData[i].getStack() : FluidStack.EMPTY;
@@ -39,7 +39,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     }
 
     @Override
-    public boolean isFluidValid(int i, @Nonnull FluidStack fluidStack) {
+    public boolean isFluidValid(int i, @NonNull FluidStack fluidStack) {
         return true;
     }
 
@@ -55,7 +55,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
         }
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public FluidStack drain(FluidStack fluidStack, FluidAction fluidAction) {
         switch (fluidAction) {
@@ -67,7 +67,7 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
         return FluidStack.EMPTY;
     }
 
-    @Nonnull
+    @NonNull
     @Override
     public FluidStack drain(int i, FluidAction fluidAction) {
         for (StackListEntry<FluidStack> fluidEntry : storageCacheData) {

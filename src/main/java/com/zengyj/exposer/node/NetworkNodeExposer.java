@@ -4,9 +4,9 @@ import com.refinedmods.refinedstorage.api.network.INetwork;
 import com.refinedmods.refinedstorage.apiimpl.network.node.NetworkNode;
 import com.zengyj.exposer.handler.FluidHandler;
 import com.zengyj.exposer.handler.ItemHandler;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.capability.IFluidHandler;
 import net.minecraftforge.items.IItemHandler;
 
@@ -16,8 +16,8 @@ public class NetworkNodeExposer extends NetworkNode {
     private FluidHandler fluidHandler;
     public static final String ID = "exposer";
 
-    public NetworkNodeExposer(World world, BlockPos pos) {
-        super(world, pos);
+    public NetworkNodeExposer(Level level, BlockPos pos) {
+        super(level, pos);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class NetworkNodeExposer extends NetworkNode {
 
     @Override
     public ResourceLocation getId() {
-        return new ResourceLocation("exposer");
+        return new ResourceLocation(ID);
     }
 
     @Override
