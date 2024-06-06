@@ -1,9 +1,0 @@
-<changelist name="更改1" date="1709353469429" recycled="false">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/更改1/shelved.patch" />
-  <option name="DESCRIPTION" value="更改" />
-  <binary>
-    <option name="BEFORE_PATH" />
-    <option name="AFTER_PATH" value="src/main/resources/assets/exposer/texture/fluid_connector.png" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/更改1/fluid_connector.png" />
-  </binary>
-</changelist>

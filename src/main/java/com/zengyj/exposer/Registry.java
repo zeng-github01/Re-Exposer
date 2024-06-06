@@ -32,12 +32,10 @@ public class Registry {
             .of(TileExposer::new, Registry.EXPOSER.get())
             .build(null));
 
-    public Registry() {
+    static {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         CREATIVE_TABS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCK_ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
-
-
 }
