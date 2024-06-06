@@ -1,5 +1,6 @@
 package com.zengyj.exposer.tile;
 
+import com.raoulvdberge.refinedstorage.apiimpl.API;
 import com.raoulvdberge.refinedstorage.tile.TileNode;
 import com.zengyj.exposer.handler.FluidHandler;
 import com.zengyj.exposer.handler.ItemHandler;
@@ -25,7 +26,7 @@ public class TileExposer extends TileNode<NetworkNodeExposer> {
 
     @Override
     public String getNodeId() {
-        return "exposer";
+        return NetworkNodeExposer.ID;
     }
 
     @Override

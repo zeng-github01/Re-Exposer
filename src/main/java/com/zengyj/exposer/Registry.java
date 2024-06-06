@@ -17,16 +17,15 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @Mod.EventBusSubscriber(modid = Constants.Mod_ID)
 public class Registry {
 
+    public static final BlockExposer EXPOSER = new BlockExposer();
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        // 注册方块
-        event.getRegistry().register(new BlockExposer());
+        event.getRegistry().register(EXPOSER);
     }
 
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
-        // 注册物品
-        event.getRegistry().register(new ItemBlock(new BlockExposer()).setRegistryName(Constants.Mod_ID, "exposer"));
+        event.getRegistry().register(new ItemBlock(EXPOSER).setRegistryName(Constants.Mod_ID, "exposer"));
 
     }
 }

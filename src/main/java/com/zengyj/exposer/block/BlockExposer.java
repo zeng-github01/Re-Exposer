@@ -8,7 +8,6 @@ import com.zengyj.exposer.Exposer;
 import com.zengyj.exposer.tile.TileExposer;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class BlockExposer extends BlockNode {
@@ -23,6 +22,4 @@ public class BlockExposer extends BlockNode {
     public String getTranslationKey() {
         return "block.exposer";
     }
-
-
 }
