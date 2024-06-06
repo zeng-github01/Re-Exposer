@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "rgr",
+    "icf",
+    "rer"
+  ],
+  "key":
+  {
+    "r":
+    {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "i":
+    {
+      "item": "refinedstorage:interface"
+    },
+    "f": {
+      "item": "refinedstorage:fluid_interface"
+    },
+    "c":
+    {
+      "item": "refinedstorage:machine_casing"
+    },
+    "e":
+    {
+      "item": "refinedstorage:external_storage"
+    },
+    "g":
+    {
+      "item": "minecraft:glass"
+    }
+  },
+  "result":
+  {
+    "item": "exposer:exposer"
+  }
+}
