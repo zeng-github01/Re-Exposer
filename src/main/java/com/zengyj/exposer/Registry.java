@@ -1,9 +1,11 @@
 package com.zengyj.exposer;
 
 import com.zengyj.exposer.block.BlockExposer;
+import com.zengyj.exposer.tile.TileExposer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,6 +16,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class Registry {
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Constants.Mod_ID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Constants.Mod_ID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Constants.Mod_ID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Constants.Mod_ID);
 
     public static final RegistryObject<Block> EXPOSER = BLOCKS.register("exposer", BlockExposer::new);
@@ -25,10 +28,15 @@ public class Registry {
                         output.accept(EXPOSER_ITEM.get());
                     }).build());
 
+    public static final RegistryObject<BlockEntityType<TileExposer>> EXPOSER_TYPE = BLOCK_ENTITY_TYPES.register("requester", () -> BlockEntityType.Builder
+            .of(TileExposer::new, Registry.EXPOSER.get())
+            .build(null));
+
     public Registry() {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         CREATIVE_TABS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        BLOCK_ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
 

@@ -3,6 +3,8 @@ package com.zengyj.exposer.tile;
 import com.refinedmods.refinedstorage.RSBlockEntities;
 import com.refinedmods.refinedstorage.blockentity.NetworkNodeBlockEntity;
 import com.refinedmods.refinedstorage.blockentity.data.BlockEntitySynchronizationSpec;
+import com.zengyj.exposer.Exposer;
+import com.zengyj.exposer.Registry;
 import com.zengyj.exposer.node.NetworkNodeExposer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,7 +28,8 @@ public class TileExposer extends NetworkNodeBlockEntity<NetworkNodeExposer> {
     public static BlockEntitySynchronizationSpec SPEC;
 
     public TileExposer(BlockPos pos, BlockState state) {
-        super(RSBlockEntities.EXTERNAL_STORAGE.get(), pos, state, SPEC);
+        super(Registry.EXPOSER_TYPE.get(), pos, state, SPEC);
+//        Exposer.LOGGER.info("Creating TileExposer");
     }
 
 
@@ -34,18 +37,22 @@ public class TileExposer extends NetworkNodeBlockEntity<NetworkNodeExposer> {
     @Override
     public <T> LazyOptional<T> getCapability(@NonNull Capability<T> cap, @Nullable Direction direction) {
         if (cap == ForgeCapabilities.ITEM_HANDLER){
+//            Exposer.LOGGER.info("Start expose item handler");
             if (itemSupplier != null){
+//                Exposer.LOGGER.info("expose exist item handler");
                 return (LazyOptional<T>) LazyOptional.of(itemSupplier);
             }
 
             if (getNode().getItemHandler() == null){
+//                Exposer.LOGGER.info("return empty item handler");
                 return LazyOptional.empty();
             }
 
-            itemSupplier = new NonNullSupplier<IItemHandler>() {
+            itemSupplier = new NonNullSupplier<>() {
                 @NonNull
                 @Override
                 public IItemHandler get() {
+//                    Exposer.LOGGER.info("get expose item handler");
                     return getNode().getItemHandler();
                 }
             };
@@ -62,7 +69,7 @@ public class TileExposer extends NetworkNodeBlockEntity<NetworkNodeExposer> {
                 return LazyOptional.empty();
             }
 
-            fluidSupplier = new NonNullSupplier<IFluidHandler>() {
+            fluidSupplier = new NonNullSupplier<>() {
                 @NonNull
                 @Override
                 public IFluidHandler get() {

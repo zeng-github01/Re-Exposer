@@ -37,6 +37,7 @@ public class NetworkNodeExposer extends NetworkNode {
         this.fluidHandler = new FluidHandler(network);
         network.getItemStorageCache().addListener(this.itemHandler);
         network.getFluidStorageCache().addListener(this.fluidHandler);
+        markDirty();
     }
 
     @Override
@@ -44,6 +45,7 @@ public class NetworkNodeExposer extends NetworkNode {
         super.onDisconnected(network);
         network.getItemStorageCache().removeListener(this.itemHandler);
         network.getFluidStorageCache().removeListener(this.fluidHandler);
+        markDirty();
     }
 
     public IItemHandler getItemHandler() {
