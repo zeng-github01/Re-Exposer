@@ -2,6 +2,7 @@ package com.zengyj.exposer.tile;
 
 import com.refinedmods.refinedstorage.RSTiles;
 import com.refinedmods.refinedstorage.tile.NetworkNodeTile;
+import com.zengyj.exposer.Registry;
 import com.zengyj.exposer.handler.FluidHandler;
 import com.zengyj.exposer.handler.ItemHandler;
 import com.zengyj.exposer.node.NetworkNodeExposer;
@@ -24,7 +25,7 @@ public class TileExposer extends NetworkNodeTile<NetworkNodeExposer> {
     private NonNullSupplier<IItemHandler> itemSupplier;
     private NonNullSupplier<IFluidHandler> fluidSupplier;
     public TileExposer() {
-        super(RSTiles.EXTERNAL_STORAGE);
+        super(Registry.EXPOSER_TYPE.get());
     }
 
     @Override
