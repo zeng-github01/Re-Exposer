@@ -29,11 +29,11 @@ public class Registry {
     public static final RegistryObject<Block> EXPOSER = BLOCKS.register("exposer", BlockExposer::new);
     public static final RegistryObject<Item> EXPOSER_ITEM = ITEMS.register("exposer", () -> new BlockItem(EXPOSER.get(), new Item.Properties().group(com.refinedmods.refinedstorage.RS.MAIN_GROUP)));
 
-    public static final RegistryObject<TileEntityType<TileExposer>> EXPOSER_TYPE = BLOCK_ENTITY_TYPES.register("requester", () -> TileEntityType.Builder
+    public static final RegistryObject<TileEntityType<TileExposer>> EXPOSER_TYPE = BLOCK_ENTITY_TYPES.register("exposer", () -> TileEntityType.Builder
             .create(TileExposer::new, Registry.EXPOSER.get())
             .build(null));
 
-    public Registry() {
+    static {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCK_ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
