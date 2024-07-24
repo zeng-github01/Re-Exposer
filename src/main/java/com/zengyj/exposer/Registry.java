@@ -3,6 +3,7 @@ package com.zengyj.exposer;
 import com.zengyj.exposer.block.BlockExposer;
 import com.zengyj.exposer.tile.TileExposer;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -24,9 +25,9 @@ public class Registry {
 
     public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TABS.register("exposer", ()->
             CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                    .icon(()-> ItemStack.EMPTY).displayItems((itemDisplayParameters, output) -> {
+                    .icon(()-> new ItemStack(EXPOSER.get())).displayItems((itemDisplayParameters, output) -> {
                         output.accept(EXPOSER_ITEM.get());
-                    }).build());
+                    }).title(Component.translatable("exposer.modid")).build());
 
     public static final RegistryObject<BlockEntityType<TileExposer>> EXPOSER_TYPE = BLOCK_ENTITY_TYPES.register("requester", () -> BlockEntityType.Builder
             .of(TileExposer::new, Registry.EXPOSER.get())
