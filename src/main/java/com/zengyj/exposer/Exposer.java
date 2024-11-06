@@ -12,4 +12,11 @@ import java.util.function.Supplier;
 @Mod(Constants.Mod_ID)
 public class Exposer {
     public static final Logger LOGGER  = LogManager.getLogger(Constants.Mod_ID);
+
+    public static final CreativeModeTab TAB = new CreativeModeTab(Constants.Mod_ID) {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(Registry.EXPOSER_ITEM.get());
+        }
+    };
 }

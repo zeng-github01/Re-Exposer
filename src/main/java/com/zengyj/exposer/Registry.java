@@ -2,8 +2,6 @@ package com.zengyj.exposer;
 
 import com.zengyj.exposer.block.BlockExposer;
 import com.zengyj.exposer.tile.TileExposer;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -17,17 +15,11 @@ import net.minecraftforge.registries.RegistryObject;
 public class Registry {
     private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Constants.Mod_ID);
     private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Constants.Mod_ID);
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Constants.Mod_ID);
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Constants.Mod_ID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, Constants.Mod_ID);
 
     public static final RegistryObject<Block> EXPOSER = BLOCKS.register("exposer", BlockExposer::new);
-    public static final RegistryObject<Item> EXPOSER_ITEM = ITEMS.register("exposer", () -> new BlockItem(EXPOSER.get(),new Item.Properties()));
+    public static final RegistryObject<Item> EXPOSER_ITEM = ITEMS.register("exposer", () -> new BlockItem(EXPOSER.get(),new Item.Properties().tab(Exposer.TAB)));
 
-    public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TABS.register("exposer", ()->
-            CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                    .icon(()-> new ItemStack(EXPOSER.get())).displayItems((itemDisplayParameters, output) -> {
-                        output.accept(EXPOSER_ITEM.get());
-                    }).title(Component.translatable("exposer.modid")).build());
 
     public static final RegistryObject<BlockEntityType<TileExposer>> EXPOSER_TYPE = BLOCK_ENTITY_TYPES.register("requester", () -> BlockEntityType.Builder
             .of(TileExposer::new, Registry.EXPOSER.get())
@@ -36,7 +28,6 @@ public class Registry {
     static {
         BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        CREATIVE_TABS.register(FMLJavaModLoadingContext.get().getModEventBus());
         BLOCK_ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }

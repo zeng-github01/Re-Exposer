@@ -69,7 +69,7 @@ repositories {
 
 dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
-    implementation fg.deobf("curse.maven:refined-storage-243076:4844585")
+    implementation fg.deobf("curse.maven:refined-storage-243076:4902316")
 
 }
 
