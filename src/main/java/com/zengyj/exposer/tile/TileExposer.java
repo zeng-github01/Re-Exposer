@@ -29,7 +29,6 @@ public class TileExposer extends NetworkNodeBlockEntity<NetworkNodeExposer> {
 
     public TileExposer(BlockPos pos, BlockState state) {
         super(Registry.EXPOSER_TYPE.get(), pos, state, SPEC);
-//        Exposer.LOGGER.info("Creating TileExposer");
     }
 
 
@@ -37,14 +36,11 @@ public class TileExposer extends NetworkNodeBlockEntity<NetworkNodeExposer> {
     @Override
     public <T> LazyOptional<T> getCapability(@NonNull Capability<T> cap, @Nullable Direction direction) {
         if (cap == ForgeCapabilities.ITEM_HANDLER){
-//            Exposer.LOGGER.info("Start expose item handler");
             if (itemSupplier != null){
-//                Exposer.LOGGER.info("expose exist item handler");
                 return (LazyOptional<T>) LazyOptional.of(itemSupplier);
             }
 
             if (getNode().getItemHandler() == null){
-//                Exposer.LOGGER.info("return empty item handler");
                 return LazyOptional.empty();
             }
 
@@ -52,7 +48,6 @@ public class TileExposer extends NetworkNodeBlockEntity<NetworkNodeExposer> {
                 @NonNull
                 @Override
                 public IItemHandler get() {
-//                    Exposer.LOGGER.info("get expose item handler");
                     return getNode().getItemHandler();
                 }
             };
