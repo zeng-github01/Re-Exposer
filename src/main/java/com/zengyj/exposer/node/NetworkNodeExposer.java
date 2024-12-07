@@ -2,6 +2,7 @@ package com.zengyj.exposer.node;
 
 import com.refinedmods.refinedstorage.api.network.INetwork;
 import com.refinedmods.refinedstorage.apiimpl.network.node.NetworkNode;
+import com.zengyj.exposer.block.BlockExposer;
 import com.zengyj.exposer.handler.FluidHandler;
 import com.zengyj.exposer.handler.ItemHandler;
 import net.minecraft.core.BlockPos;

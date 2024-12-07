@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "connected=false": { "model": "exposer:block/exposer_disconnected" },
+    "connected=true": {"model": "exposer:block/exposer_connected" }
+  }
+}
+
+
