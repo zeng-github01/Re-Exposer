@@ -1,36 +1,37 @@
 package com.zengyj.exposer.handler;
 
-import com.refinedmods.refinedstorage.api.network.INetwork;
-import com.refinedmods.refinedstorage.api.storage.cache.IStorageCacheListener;
-import com.refinedmods.refinedstorage.api.util.Action;
-import com.refinedmods.refinedstorage.api.util.StackListEntry;
-import com.refinedmods.refinedstorage.api.util.StackListResult;
-import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.IFluidHandler;
+
+import com.refinedmods.refinedstorage.api.core.Action;
+import com.refinedmods.refinedstorage.api.network.Network;
+import com.refinedmods.refinedstorage.api.network.storage.StorageNetworkComponent;
+import com.refinedmods.refinedstorage.api.resource.list.MutableResourceList;
+import com.refinedmods.refinedstorage.api.storage.Actor;
+import com.refinedmods.refinedstorage.api.storage.root.RootStorageListener;
+import com.refinedmods.refinedstorage.common.support.resource.FluidResource;
+import net.neoforged.neoforge.fluids.FluidStack;
+import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 
 import java.util.List;
 
-public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidStack> {
+public class FluidHandler implements IFluidHandler, RootStorageListener {
 
-    private INetwork network;
-    private StackListEntry<FluidStack>[] storageCacheData;
+    private Network network;
 
-    public FluidHandler(INetwork network) {
+    public FluidHandler(Network network) {
         this.network = network;
-        this.invalidate();
     }
 
     @Override
     public int getTanks() {
-        return storageCacheData.length + 1;
+//        return storageCacheData.length + 1;
     }
 
     @NonNull
     @Override
     public FluidStack getFluidInTank(int i) {
-        return i < this.storageCacheData.length ? this.storageCacheData[i].getStack() : FluidStack.EMPTY;
+//        return i < this.storageCacheData.length ? this.storageCacheData[i].getStack() : FluidStack.EMPTY;
     }
 
     @Override
@@ -47,22 +48,28 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     public int fill(FluidStack fluidStack, FluidAction fluidAction) {
         if (fluidStack == FluidStack.EMPTY) return 0;
 
-        FluidStack remainder = network.insertFluid(fluidStack, fluidStack.getAmount(), fluidAction == FluidAction.EXECUTE ? Action.PERFORM : Action.SIMULATE);
-        if (remainder == FluidStack.EMPTY) {
-            return fluidStack.getAmount();
-        } else {
-            return fluidStack.getAmount() - remainder.getAmount();
-        }
+        StorageNetworkComponent component = network.getComponent(StorageNetworkComponent.class);
+
+        FluidResource fluidResource = new FluidResource(fluidStack.getFluid());
+
+        long inserted = component.insert(fluidResource, fluidStack.getAmount(), fluidAction == FluidAction.EXECUTE ? Action.EXECUTE : Action.SIMULATE, Actor.EMPTY);
+
+        return ((int) inserted);
     }
 
     @NonNull
     @Override
     public FluidStack drain(FluidStack fluidStack, FluidAction fluidAction) {
+        StorageNetworkComponent component = network.getComponent(StorageNetworkComponent.class);
+        FluidResource fluidResource = new FluidResource(fluidStack.getFluid());
+
         switch (fluidAction) {
             case EXECUTE:
-                return network.extractFluid(fluidStack, fluidStack.getAmount(), Action.PERFORM);
+                long extracted_execute = component.extract(fluidResource, fluidStack.getAmount(), Action.EXECUTE, Actor.EMPTY);
+                return new FluidStack(fluidStack.getFluid(),((int) extracted_execute));
             case SIMULATE:
-                return network.extractFluid(fluidStack, fluidStack.getAmount(), Action.SIMULATE);
+                long extracted_simulate = component.extract(fluidResource, fluidStack.getAmount(), Action.SIMULATE, Actor.EMPTY);
+                return new FluidStack(fluidStack.getFluid(),((int) extracted_simulate));
         }
         return FluidStack.EMPTY;
     }
@@ -70,35 +77,11 @@ public class FluidHandler implements IFluidHandler, IStorageCacheListener<FluidS
     @NonNull
     @Override
     public FluidStack drain(int i, FluidAction fluidAction) {
-        for (StackListEntry<FluidStack> fluidEntry : storageCacheData) {
-            if (fluidEntry.getStack().getAmount() >= i) {
-                return network.extractFluid(fluidEntry.getStack(), i, fluidAction == FluidAction.EXECUTE ? Action.PERFORM : Action.SIMULATE);
-            }
-        }
         return FluidStack.EMPTY;
     }
 
     @Override
-    public void onAttached() {
-
-    }
-
-    @Override
-    public void onInvalidated() {
-        this.invalidate();
-    }
-
-    @Override
-    public void onChanged(StackListResult<FluidStack> stackListResult) {
-        this.invalidate();
-    }
-
-    @Override
-    public void onChangedBulk(List<StackListResult<FluidStack>> list) {
-        this.invalidate();
-    }
-
-    private void invalidate() {
-        this.storageCacheData = this.network.getFluidStorageCache().getList().getStacks().toArray(new StackListEntry[0]);
+    public void changed(MutableResourceList.OperationResult operationResult) {
+        //
     }
 }
