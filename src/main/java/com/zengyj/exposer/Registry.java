@@ -1,42 +1,36 @@
 package com.zengyj.exposer;
 
 import com.zengyj.exposer.block.BlockExposer;
-import com.zengyj.exposer.tile.TileExposer;
+import com.zengyj.exposer.blockentity.ExposerBlockEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
 
-@Mod.EventBusSubscriber(modid = Constants.Mod_ID)
+import java.util.function.Supplier;
+
 public class Registry {
-    private static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Constants.Mod_ID);
-    private static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Constants.Mod_ID);
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, Constants.Mod_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BuiltInRegistries.BLOCK, Constants.Mod_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, Constants.Mod_ID);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, Constants.Mod_ID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Constants.Mod_ID);
 
-    public static final RegistryObject<Block> EXPOSER = BLOCKS.register("exposer", BlockExposer::new);
-    public static final RegistryObject<Item> EXPOSER_ITEM = ITEMS.register("exposer", () -> new BlockItem(EXPOSER.get(),new Item.Properties()));
+    public static final DeferredHolder<Block, Block> EXPOSER = BLOCKS.register("exposer", BlockExposer::new);
+    public static final DeferredHolder<Item, Item> EXPOSER_ITEM = ITEMS.register("exposer", () -> new BlockItem(EXPOSER.get(), new Item.Properties()));
 
-    public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TABS.register("exposer", ()->
-            CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                    .icon(()-> new ItemStack(EXPOSER.get())).displayItems((itemDisplayParameters, output) -> {
+    public static final Supplier<BlockEntityType<ExposerBlockEntity>> EXPOSER_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(
+            "exposer_block_entity",
+            () -> BlockEntityType.Builder.of(ExposerBlockEntity::new, EXPOSER.get()).build(null)
+    );
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = CREATIVE_TABS.register("exposer", () ->
+            CreativeModeTab.builder()
+                    .icon(() -> new ItemStack(EXPOSER.get())).displayItems((itemDisplayParameters, output) -> {
                         output.accept(EXPOSER_ITEM.get());
                     }).title(Component.translatable("exposer.modid")).build());
-
-    public static final RegistryObject<BlockEntityType<TileExposer>> EXPOSER_TYPE = BLOCK_ENTITY_TYPES.register("requester", () -> BlockEntityType.Builder
-            .of(TileExposer::new, Registry.EXPOSER.get())
-            .build(null));
-
-    static {
-        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        CREATIVE_TABS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        BLOCK_ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
-    }
 }
