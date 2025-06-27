@@ -18,7 +18,7 @@ public class BlockExposer extends NetworkNodeBlock {
     }
 
     public BlockDirection getDirection() {
-        return BlockDirection.HORIZONTAL;
+        return BlockDirection.NONE;
     }
 
     @Nullable
