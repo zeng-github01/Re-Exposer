@@ -5,17 +5,14 @@ import com.refinedmods.refinedstorage.api.storage.cache.IStorageCacheListener;
 import com.refinedmods.refinedstorage.api.util.Action;
 import com.refinedmods.refinedstorage.api.util.StackListEntry;
 import com.refinedmods.refinedstorage.api.util.StackListResult;
-import com.refinedmods.refinedstorage.util.StackUtils;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.IItemHandler;
-import org.apache.commons.lang3.tuple.Pair;
 import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.List;
 
 public class ItemHandler implements IItemHandler, IStorageCacheListener<ItemStack> {
-    private INetwork network;
+    private final INetwork network;
     private StackListEntry<ItemStack>[] storageCacheData;
 
     public ItemHandler(INetwork network){
@@ -42,7 +39,7 @@ public class ItemHandler implements IItemHandler, IStorageCacheListener<ItemStac
     @NonNull
     @Override
     public ItemStack extractItem(int slot, int amount, boolean simulate) {
-        return slot < this.storageCacheData.length ? this.network.extractItem(this.storageCacheData[slot].getStack(), amount, 3, simulate ? Action.SIMULATE : Action.PERFORM) : ItemStack.EMPTY;
+        return slot < this.storageCacheData.length ? this.network.extractItem(this.storageCacheData[slot].getStack(), amount, 1, simulate ? Action.SIMULATE : Action.PERFORM) : ItemStack.EMPTY;
     }
 
     @Override
