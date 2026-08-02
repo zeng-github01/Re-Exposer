@@ -3,6 +3,7 @@ package com.zengyj.exposer.handler;
 import com.refinedmods.refinedstorage.api.network.INetwork;
 import com.refinedmods.refinedstorage.api.storage.cache.IStorageCacheListener;
 import com.refinedmods.refinedstorage.api.util.Action;
+import com.refinedmods.refinedstorage.api.util.IComparer;
 import com.refinedmods.refinedstorage.api.util.StackListEntry;
 import com.refinedmods.refinedstorage.api.util.StackListResult;
 import net.minecraft.world.item.ItemStack;
@@ -39,7 +40,7 @@ public class ItemHandler implements IItemHandler, IStorageCacheListener<ItemStac
     @NonNull
     @Override
     public ItemStack extractItem(int slot, int amount, boolean simulate) {
-        return slot < this.storageCacheData.length ? this.network.extractItem(this.storageCacheData[slot].getStack(), amount, 1, simulate ? Action.SIMULATE : Action.PERFORM) : ItemStack.EMPTY;
+        return slot < this.storageCacheData.length ? this.network.extractItem(this.storageCacheData[slot].getStack(), amount, IComparer.COMPARE_NBT, simulate ? Action.SIMULATE : Action.PERFORM) : ItemStack.EMPTY;
     }
 
     @Override
