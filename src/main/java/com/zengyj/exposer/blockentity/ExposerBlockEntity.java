@@ -1,9 +1,7 @@
-package com.zengyj.exposer.tile;
+package com.zengyj.exposer.blockentity;
 
-import com.refinedmods.refinedstorage.RSBlockEntities;
 import com.refinedmods.refinedstorage.blockentity.NetworkNodeBlockEntity;
 import com.refinedmods.refinedstorage.blockentity.data.BlockEntitySynchronizationSpec;
-import com.zengyj.exposer.Exposer;
 import com.zengyj.exposer.Registry;
 import com.zengyj.exposer.node.NetworkNodeExposer;
 import net.minecraft.core.BlockPos;
@@ -20,14 +18,14 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 
-public class TileExposer extends NetworkNodeBlockEntity<NetworkNodeExposer> {
+public class ExposerBlockEntity extends NetworkNodeBlockEntity<NetworkNodeExposer> {
 
     private NonNullSupplier<IItemHandler> itemSupplier;
     private NonNullSupplier<IFluidHandler> fluidSupplier;
 
     public static BlockEntitySynchronizationSpec SPEC;
 
-    public TileExposer(BlockPos pos, BlockState state) {
+    public ExposerBlockEntity(BlockPos pos, BlockState state) {
         super(Registry.EXPOSER_TYPE.get(), pos, state, SPEC);
     }
 

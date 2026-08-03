@@ -28,7 +28,7 @@ public class NetworkNodeExposer extends NetworkNode {
 
     @Override
     public ResourceLocation getId() {
-        return new ResourceLocation(ID);
+        return ResourceLocation.parse(ID);
     }
 
     @Override

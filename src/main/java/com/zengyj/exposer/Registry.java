@@ -1,7 +1,11 @@
 package com.zengyj.exposer;
 
+import com.zengyj.exposer.block.AEBridgeBlock;
 import com.zengyj.exposer.block.BlockExposer;
-import com.zengyj.exposer.tile.TileExposer;
+import com.zengyj.exposer.block.RSBridgeBlock;
+import com.zengyj.exposer.blockentity.AEBridgeBlockEntity;
+import com.zengyj.exposer.blockentity.ExposerBlockEntity;
+import com.zengyj.exposer.blockentity.RSBridgeBlockEntity;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.*;
@@ -21,16 +25,37 @@ public class Registry {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Constants.Mod_ID);
 
     public static final RegistryObject<Block> EXPOSER = BLOCKS.register("exposer", BlockExposer::new);
-    public static final RegistryObject<Item> EXPOSER_ITEM = ITEMS.register("exposer", () -> new BlockItem(EXPOSER.get(),new Item.Properties()));
+    public static final RegistryObject<Item> EXPOSER_ITEM = ITEMS.register("exposer", () -> new BlockItem(EXPOSER.get(), new Item.Properties()));
 
-    public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TABS.register("exposer", ()->
+    public static final RegistryObject<Block> RS_BRIDGE = BLOCKS.register("rs_bridge", RSBridgeBlock::new);
+    public static final RegistryObject<Item> RS_BRIDGE_ITEM = ITEMS.register("rs_bridge", () -> new BlockItem(RS_BRIDGE.get(), new Item.Properties()));
+
+    public static final RegistryObject<Block> AE_BRIDGE = BLOCKS.register("ae_bridge", () -> {
+        AEBridgeBlock block = new AEBridgeBlock();
+        block.setBlockEntity(AEBridgeBlockEntity.class, null, null, null);
+        return block;
+    });
+    public static final RegistryObject<Item> AE_BRIDGE_ITEM = ITEMS.register("ae_bridge", () -> new BlockItem(AE_BRIDGE.get(), new Item.Properties()));
+
+
+    public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TABS.register("exposer", () ->
             CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
-                    .icon(()-> new ItemStack(EXPOSER.get())).displayItems((itemDisplayParameters, output) -> {
+                    .icon(() -> new ItemStack(EXPOSER.get())).displayItems((itemDisplayParameters, output) -> {
                         output.accept(EXPOSER_ITEM.get());
+                        output.accept(RS_BRIDGE_ITEM.get());
+                        output.accept(AE_BRIDGE_ITEM.get());
                     }).title(Component.translatable("exposer.modid")).build());
 
-    public static final RegistryObject<BlockEntityType<TileExposer>> EXPOSER_TYPE = BLOCK_ENTITY_TYPES.register("requester", () -> BlockEntityType.Builder
-            .of(TileExposer::new, Registry.EXPOSER.get())
+    public static final RegistryObject<BlockEntityType<ExposerBlockEntity>> EXPOSER_TYPE = BLOCK_ENTITY_TYPES.register("exposer", () -> BlockEntityType.Builder
+            .of(ExposerBlockEntity::new, Registry.EXPOSER.get())
+            .build(null));
+
+    public static final RegistryObject<BlockEntityType<RSBridgeBlockEntity>> RS_BRIDGE_TYPE = BLOCK_ENTITY_TYPES.register("rs_bridge", () -> BlockEntityType.Builder
+            .of(RSBridgeBlockEntity::new, Registry.RS_BRIDGE.get())
+            .build(null));
+
+    public static final RegistryObject<BlockEntityType<AEBridgeBlockEntity>> AE_BRIDGE_TYPE = BLOCK_ENTITY_TYPES.register("ae_bridge", () -> BlockEntityType.Builder
+            .of(AEBridgeBlockEntity::new, AE_BRIDGE.get())
             .build(null));
 
     static {

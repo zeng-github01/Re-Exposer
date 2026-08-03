@@ -1,10 +1,9 @@
 package com.zengyj.exposer.block;
 
-import com.refinedmods.refinedstorage.apiimpl.API;
 import com.refinedmods.refinedstorage.block.BlockDirection;
 import com.refinedmods.refinedstorage.block.NetworkNodeBlock;
 import com.refinedmods.refinedstorage.util.BlockUtils;
-import com.zengyj.exposer.tile.TileExposer;
+import com.zengyj.exposer.blockentity.ExposerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -24,7 +23,7 @@ public class BlockExposer extends NetworkNodeBlock {
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos blockPos, BlockState blockState) {
-        return new TileExposer(blockPos, blockState);
+        return new ExposerBlockEntity(blockPos, blockState);
     }
 
     @Override
