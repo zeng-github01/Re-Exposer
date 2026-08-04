@@ -46,11 +46,6 @@ public class RSBridgeBlock extends NetworkNodeBlock {
         return state.rotate(mirror.getRotation(state.getValue(BlockStateProperties.FACING)));
     }
 
-//    @Override
-//    public RenderShape getRenderShape(BlockState state) {
-//        return RenderShape.MODEL;
-//    }
-
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos p_153215_, BlockState p_153216_) {
         return new RSBridgeBlockEntity(p_153215_, p_153216_);
