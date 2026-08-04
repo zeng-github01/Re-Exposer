@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "front": "minecraft:block/observer_front",
+    "bottom": "minecraft:block/observer_back",
+    "top": "minecraft:block/observer_top",
+    "side": "minecraft:block/observer_side"
+  }
+}

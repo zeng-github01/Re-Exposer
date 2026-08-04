@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": { "model": "exposer:block/ae_bridge" },
+    "facing=south": { "model": "exposer:block/ae_bridge", "y": 180 },
+    "facing=west":  { "model": "exposer:block/ae_bridge", "y": 270 },
+    "facing=east":  { "model": "exposer:block/ae_bridge", "y": 90 },
+    "facing=up":    { "model": "exposer:block/ae_bridge", "x": 270 },
+    "facing=down":  { "model": "exposer:block/ae_bridge", "x": 90 }
+  }
+}

@@ -12,4 +12,8 @@ import java.util.function.Supplier;
 @Mod(Constants.Mod_ID)
 public class Exposer {
     public static final Logger LOGGER  = LogManager.getLogger(Constants.Mod_ID);
+
+    public Exposer() {
+        Registry.register();
+    }
 }

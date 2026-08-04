@@ -1,5 +1,6 @@
 package com.zengyj.exposer;
 
+import appeng.blockentity.AEBaseBlockEntity;
 import com.zengyj.exposer.block.AEBridgeBlock;
 import com.zengyj.exposer.block.BlockExposer;
 import com.zengyj.exposer.block.RSBridgeBlock;
@@ -12,6 +13,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -30,13 +32,8 @@ public class Registry {
     public static final RegistryObject<Block> RS_BRIDGE = BLOCKS.register("rs_bridge", RSBridgeBlock::new);
     public static final RegistryObject<Item> RS_BRIDGE_ITEM = ITEMS.register("rs_bridge", () -> new BlockItem(RS_BRIDGE.get(), new Item.Properties()));
 
-    public static final RegistryObject<Block> AE_BRIDGE = BLOCKS.register("ae_bridge", () -> {
-        AEBridgeBlock block = new AEBridgeBlock();
-        block.setBlockEntity(AEBridgeBlockEntity.class, null, null, null);
-        return block;
-    });
+    public static final RegistryObject<Block> AE_BRIDGE = BLOCKS.register("ae_bridge", AEBridgeBlock::new);
     public static final RegistryObject<Item> AE_BRIDGE_ITEM = ITEMS.register("ae_bridge", () -> new BlockItem(AE_BRIDGE.get(), new Item.Properties()));
-
 
     public static final RegistryObject<CreativeModeTab> TAB = CREATIVE_TABS.register("exposer", () ->
             CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
@@ -54,14 +51,40 @@ public class Registry {
             .of(RSBridgeBlockEntity::new, Registry.RS_BRIDGE.get())
             .build(null));
 
-    public static final RegistryObject<BlockEntityType<AEBridgeBlockEntity>> AE_BRIDGE_TYPE = BLOCK_ENTITY_TYPES.register("ae_bridge", () -> BlockEntityType.Builder
-            .of(AEBridgeBlockEntity::new, AE_BRIDGE.get())
-            .build(null));
+    public static final RegistryObject<BlockEntityType<AEBridgeBlockEntity>> AE_BRIDGE_TYPE = BLOCK_ENTITY_TYPES.register("ae_bridge", () -> {
+        BlockEntityType<AEBridgeBlockEntity> type = BlockEntityType.Builder
+                .of(AEBridgeBlockEntity::new, AE_BRIDGE.get())
+                .build(null);
+        ((AEBridgeBlock) AE_BRIDGE.get()).setBlockEntity(
+                AEBridgeBlockEntity.class,
+                type,
+                null,
+                (level, pos, state, entity) -> entity.serverTick()
+        );
 
-    static {
-        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        CREATIVE_TABS.register(FMLJavaModLoadingContext.get().getModEventBus());
-        BLOCK_ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        return type;
+    });
+
+    // 💡 1. 注册 DeferredRegister 到事件总线
+    public static void register() {
+        var modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        BLOCKS.register(modEventBus);
+        ITEMS.register(modEventBus);
+        CREATIVE_TABS.register(modEventBus);
+        BLOCK_ENTITY_TYPES.register(modEventBus);
+
+        // 💡 监听 CommonSetup 事件
+        modEventBus.addListener(Registry::commonSetup);
+    }
+
+    // 💡 2. 在 CommonSetup 阶段完成 AE2 的绑定
+    private static void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            // 向 AE2 注册 BlockEntityType 与 Item 的映射
+            AEBaseBlockEntity.registerBlockEntityItem(
+                    AE_BRIDGE_TYPE.get(),
+                    AE_BRIDGE_ITEM.get()
+            );
+        });
     }
 }
