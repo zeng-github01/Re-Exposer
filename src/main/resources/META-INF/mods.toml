@@ -30,3 +30,10 @@ license="MIT"
     versionRange="[1.9.7,)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.exposer]]
+    modId="ae2"
+    mandatory=true
+    versionRange="[15.3.6,)"
+    ordering="NONE"
+    side="BOTH"
