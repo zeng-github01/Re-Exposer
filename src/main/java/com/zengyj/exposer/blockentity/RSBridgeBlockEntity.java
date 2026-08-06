@@ -255,7 +255,7 @@ public class RSBridgeBlockEntity extends NetworkNodeBlockEntity<NetworkNodeBridg
     }
 
     /**
-     * 镜像查找：检查并获取对面“对脸”连接的 AEBridgeBlockEntity
+     * 镜像查找：检查并获取对面“对脸”连接的 {@link AEBridgeBlockEntity}
      */
     @Nullable
     private AEBridgeBlockEntity getConnectedAEBridge() {

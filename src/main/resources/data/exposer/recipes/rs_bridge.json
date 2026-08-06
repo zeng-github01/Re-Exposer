@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " P ",
+    "C I",
+    " P "
+  ],
+  "key": {
+    "P": {
+      "item": "refinedstorage:improved_processor"
+    },
+    "C": {
+      "item": "refinedstorage:cable"
+    },
+    "I": {
+      "item": "refinedstorage:interface"
+    }
+  },
+  "result": {
+    "count": 1,
+    "item": "exposer:rs_bridge"
+  }
+}

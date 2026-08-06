@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " E ",
+    "C P",
+    " E "
+  ],
+  "key": {
+    "E": {
+      "item": "ae2:engineering_processor"
+    },
+    "C": {
+      "item": "ae2:fluix_glass_cable"
+    },
+    "P": {
+      "item": "ae2:pattern_provider"
+    }
+  },
+  "result": {
+    "count": 1,
+    "item": "exposer:ae_bridge"
+  }
+}

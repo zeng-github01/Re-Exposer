@@ -1,4 +1,6 @@
 {
   "block.exposer.exposer": "Exposer",
-  "exposer.modid": "Exposer"
+  "exposer.modid": "Exposer",
+  "block.exposer.rs_bridge": "Pattern Bridge RS Side",
+  "block.exposer.ae_bridge": "Pattern Bridge AE Side"
 }

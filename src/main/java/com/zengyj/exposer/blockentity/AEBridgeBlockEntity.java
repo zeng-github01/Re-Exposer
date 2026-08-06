@@ -27,6 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.fluids.FluidStack;
 
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,6 +66,29 @@ public class AEBridgeBlockEntity extends AENetworkBlockEntity implements ICrafti
         }
 
         return patterns;
+    }
+
+    /**
+     * 镜像查找：检查并获取对面“对脸”连接的 {@link RSBridgeBlockEntity}
+     */
+    @Nullable
+    private RSBridgeBlockEntity getConnectedAEBridge() {
+        if (this.level == null) return null;
+
+        // 1. 检查是否与 AE 节点“对脸”连接
+        if (!BlockLinkUtil.isFaceToFaceConnected(level, worldPosition, getBlockState(), Registry.AE_BRIDGE.get())) {
+            return null;
+        }
+
+        // 2. 获取对面的 AE BlockEntity
+        Direction facing = getBlockState().getValue(BlockStateProperties.FACING);
+        BlockEntity targetBE = level.getBlockEntity(worldPosition.relative(facing));
+
+        if (targetBE instanceof RSBridgeBlockEntity aeBE) {
+            return aeBE;
+        }
+
+        return null;
     }
 
     @Override
@@ -209,12 +233,6 @@ public class AEBridgeBlockEntity extends AENetworkBlockEntity implements ICrafti
                     Actionable.MODULATE,
                     IActionSource.ofMachine(this)
             );
-
-            // 💡 2. 关键点：只要成功注入了物品，就立马 alertDevice 唤醒 AE2 的网络 Tick！
-            // 这会促使 AE2 的 Crafting CPU 瞬间意识到“等待的产物已经入库”，从而自动将任务标记为完成。
-            if (inserted > 0) {
-                grid.getTickManager().alertDevice(node);
-            }
         });
     }
 }

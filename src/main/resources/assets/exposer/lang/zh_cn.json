@@ -1,4 +1,6 @@
 {
   "block.exposer.exposer": "网络暴露器",
-  "exposer.modid": "Exposer"
+  "exposer.modid": "Exposer",
+  "block.exposer.rs_bridge": "样板桥 RS端",
+  "block.exposer.ae_bridge": "样板桥 AE端"
 }
