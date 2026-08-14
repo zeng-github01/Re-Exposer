@@ -33,7 +33,7 @@ license="MIT"
 
 [[dependencies.exposer]]
     modId="ae2"
-    mandatory=true
+    mandatory=false
     versionRange="[15.3.6,)"
     ordering="NONE"
     side="BOTH"
